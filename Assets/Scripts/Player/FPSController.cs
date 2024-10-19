@@ -49,14 +49,15 @@ public class FPSController : MonoBehaviour
         float zMovement = Input.GetAxis("Vertical") * _currentSpeed;
 
         Vector3 move = transform.right * xMovement + transform.forward * zMovement;
-        _currentInput = new Vector3(move.x, _rigidbody.velocity.y, move.z);
-        _currentVelocity = new Vector3(_currentVelocity.x, _rigidbody.velocity.y, _currentVelocity.z);
+        _currentInput = new Vector3(move.x, _rigidbody.linearVelocity.y, move.z);
+        _currentVelocity = new Vector3(_currentVelocity.x, _rigidbody.linearVelocity.y, _currentVelocity.z);
         ProcessInertia();
-        _rigidbody.velocity = _currentVelocity;
+        _rigidbody.linearVelocity = _currentVelocity;
     }
     private void ProcessInertia()
     {
-        _currentVelocity = Vector3.Lerp(_currentVelocity, _currentInput, _acceleration / _currentWeight);
+        print(Time.deltaTime);
+        _currentVelocity = Vector3.Lerp(_currentVelocity, _currentInput, _acceleration / _currentWeight * Time.deltaTime);
     }
     private void CheckTilt()
     {
@@ -72,7 +73,7 @@ public class FPSController : MonoBehaviour
     }
     private void Jump()
     {
-        _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z);
+        _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _jumpForce, _rigidbody.linearVelocity.z);
     }
     public void SetSpeed(float weaponMass)
     {

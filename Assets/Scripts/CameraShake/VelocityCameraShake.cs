@@ -7,11 +7,11 @@ public class VelocityCameraShake : CameraShake
     private float _currentVelocity, _previousVelocity, _impactForce;
     private void Update()
     {
-        _currentVelocity = _rigidbody.velocity.y;
+        _currentVelocity = _rigidbody.linearVelocity.y;
         _impactForce = Mathf.Abs(_currentVelocity - _previousVelocity);
         if (_impactForce > _vecolityThreshold)
             ShakeCamera(_impactForce);
-        _previousVelocity = _rigidbody.velocity.y;
+        _previousVelocity = _rigidbody.linearVelocity.y;
     }
     private void ShakeCamera(float force) =>
         StartCoroutine(ShakingCamera(Vector2.right * force));
