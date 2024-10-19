@@ -9,7 +9,8 @@ public class FPSController : MonoBehaviour
     [SerializeField] private float _lookSensitivity = 2f, _moveSpeed = 5f, _acceleration = 1,
         _jumpForce = 5f, _maxCarryWeight = 50, _tiltAngle = 15, _tiltSpeed = 1;
 
-    private float _verticalLookRotation, _currentSpeed, _currentTilt;
+    private float _verticalLookRotation, _currentSpeed, _currentWeight, _currentTilt;
+    private Vector3 _currentInput, _currentVelocity;
 
     private void Start()
     {
@@ -48,13 +49,14 @@ public class FPSController : MonoBehaviour
         float zMovement = Input.GetAxis("Vertical") * _currentSpeed;
 
         Vector3 move = transform.right * xMovement + transform.forward * zMovement;
-        Vector3 newVelocity = new Vector3(move.x, _rigidbody.velocity.y, move.z);
-
-        _rigidbody.velocity = newVelocity;
+        _currentInput = new Vector3(move.x, _rigidbody.velocity.y, move.z);
+        _currentVelocity = new Vector3(_currentVelocity.x, _rigidbody.velocity.y, _currentVelocity.z);
+        ProcessInertia();
+        _rigidbody.velocity = _currentVelocity;
     }
     private void ProcessInertia()
     {
-
+        _currentVelocity = Vector3.Lerp(_currentVelocity, _currentInput, _acceleration / _currentWeight);
     }
     private void CheckTilt()
     {
@@ -76,6 +78,7 @@ public class FPSController : MonoBehaviour
     {
         float ratio = weaponMass / _maxCarryWeight;
         _currentSpeed = Mathf.Lerp(_moveSpeed, 0, ratio);
+        _currentWeight = weaponMass;
     }
 
     private bool IsGrounded()

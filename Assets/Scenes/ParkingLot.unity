@@ -8804,7 +8804,7 @@ Transform:
   m_GameObject: {fileID: 166266022}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0035779476, z: -0, w: 0.9999936}
-  m_LocalPosition: {x: 0.0007, y: -0.1976, z: 0.046}
+  m_LocalPosition: {x: 0.001, y: -0.147, z: 0.046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53586,7 +53586,7 @@ MonoBehaviour:
   _recoil: 1
   _range: 120
   _scopeStrength: 15
-  _mass: 2
+  _mass: 1
   _canChangeAuto: 0
   _gunPoint: {fileID: 2018698573}
   _scopePoint: {fileID: 1266620095}
@@ -61721,13 +61721,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc6091f2251aa44aa5425e3c107d79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 681872655}
+  _rigidbody: {fileID: 0}
   _cameraTransform: {fileID: 2054534130}
   _mask:
     serializedVersion: 2
     m_Bits: 1
   _lookSensitivity: 2
   _moveSpeed: 7
+  _acceleration: 0.05
   _jumpForce: 5
   _maxCarryWeight: 20
   _tiltAngle: 25
@@ -61779,9 +61780,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.4
-  m_Height: 1.7795491
+  m_Height: 1.9422631
   m_Direction: 1
-  m_Center: {x: 0, y: 1.1102254, z: 0}
+  m_Center: {x: 0, y: 1.0288684, z: 0}
 --- !u!136 &1099300926
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -101665,7 +101666,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 0045ffb477e043a46950af7e617beb06, type: 3}
+  m_Mesh: {fileID: 7025896884712730172, guid: e0c98a3a30e9f8f479db9890911ff6c7, type: 3}
   m_Bones:
   - {fileID: 113301153}
   - {fileID: 1838793139}
@@ -108514,7 +108515,7 @@ MonoBehaviour:
   _recoil: 1
   _range: 120
   _scopeStrength: 15
-  _mass: 1
+  _mass: 3
   _canChangeAuto: 1
   _gunPoint: {fileID: 1075545332}
   _scopePoint: {fileID: 166266023}
