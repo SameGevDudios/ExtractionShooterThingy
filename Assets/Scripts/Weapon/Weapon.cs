@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     protected int _ammoCurrent;
     [SerializeField]
     protected float _reloadDuration, _fireRate,
-        _recoil, _range, _scopeStrength, _mass;
+        _spread, _range, _scopeStrength, _mass;
     private float _cooldown;
     [SerializeField] private bool _canChangeAuto;
     protected bool _auto, _canShoot, _scoped;
@@ -98,9 +98,9 @@ public class Weapon : MonoBehaviour
     {
         GameObject buffer = PoolManager.Instance.InstantiateFromPool("bulletTrail", Vector3.zero, Quaternion.identity);
         TrailFade trail = buffer.GetComponent<TrailFade>();
-        Ray ray = new Ray(_gunPoint.position, _gunPoint.forward);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, _range, _mask))
+        RandomizeGunPointRotation();
+        if (Physics.Raycast(_gunPoint.position, _gunPoint.forward, out hit, _range, _mask))
         {
             Enemy enemy = hit.collider.gameObject.GetComponentInParent<Enemy>();
             if (enemy != null) enemy.GetDamage(_damage);
@@ -110,6 +110,17 @@ public class Weapon : MonoBehaviour
         else
         {
             trail.SetPositions(_gunPoint.position, transform.position + _gunPoint.forward * _range);
+        }
+    }
+    private void RandomizeGunPointRotation()
+    {
+        if(_spread != 0)
+        {
+            _gunPoint.localEulerAngles = Vector3.zero;
+            float x = Random.Range(-_spread, _spread);
+            float y = Random.Range(-_spread, _spread);
+            float z = Random.Range(-_spread, _spread);
+            _gunPoint.Rotate(new Vector3(x, y, z));
         }
     }
     protected virtual void Reload()

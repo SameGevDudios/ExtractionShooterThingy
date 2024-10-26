@@ -4,11 +4,11 @@ public class SniperRifle : Weapon
     protected override void Start()
     {
         base.Start();
-        _startRecoil = _recoil;
+        _startRecoil = _spread;
     }
     public override void Scope()
     {
         base.Scope();
-        _recoil = _scoped ? 0 : _startRecoil;
+        _spread = _scoped ? 0 : _startRecoil;
     }
 }

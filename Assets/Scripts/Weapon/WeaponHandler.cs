@@ -37,7 +37,7 @@ public class WeaponHandler : MonoBehaviour
     }
     private void CheckScope()
     {
-        if (Input.GetMouseButtonDown(1)) 
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.LeftControl)) 
             _currentWeapon.Scope();
     }
 
@@ -51,6 +51,8 @@ public class WeaponHandler : MonoBehaviour
             ChangeWeapon(2);
         else if (Input.GetKeyDown(KeyCode.Alpha4))
             ChangeWeapon(3);
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+            ChangeWeapon(4);
         else if (Input.GetKeyDown(KeyCode.H))
             HolsterWeapon();
     }

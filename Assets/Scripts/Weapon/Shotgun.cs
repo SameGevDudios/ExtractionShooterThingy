@@ -6,7 +6,8 @@ public class Shotgun : Weapon
     [SerializeField] private float _reloadInDuration, _reloadOutDuration;
     public override void Shoot()
     {
-        for (int i = 0; i < _pelletsPerShot; i++)  base.Shoot();
+        for (int i = 0; i < _pelletsPerShot; i++)
+            base.Shoot();
     }
     protected override void Reload()
     {

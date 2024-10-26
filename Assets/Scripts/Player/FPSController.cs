@@ -6,23 +6,26 @@ public class FPSController : MonoBehaviour
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private LayerMask _mask;
 
-    [SerializeField] private float _lookSensitivity = 2f, _moveSpeed = 5f, _acceleration = 1,
+    [SerializeField]
+    private float _lookSensitivity = 2f, _walkSpeed = 2f, _runSpeed = 5f, _acceleration = 1f,
         _jumpForce = 5f, _maxCarryWeight = 50, _tiltAngle = 15, _tiltSpeed = 1;
 
     private float _verticalLookRotation, _currentSpeed, _currentWeight, _currentTilt;
-    private Vector3 _currentInput, _currentVelocity;
+    private Vector3 _move, _currentVelocity;
 
+    private bool _isRunning;
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
-        _currentSpeed = _moveSpeed;
+        _currentSpeed = _walkSpeed;
     }
 
     private void Update()
     {
         RotateCamera();
+        CheckRunInput();
+        UpdateSpeed();
         MovePlayer();
         CheckTilt();
         TiltPlayer();
@@ -42,22 +45,31 @@ public class FPSController : MonoBehaviour
 
         _cameraTransform.localEulerAngles = Vector3.left * _verticalLookRotation;
     }
+    private void CheckRunInput()
+    {
+        _isRunning = Input.GetKey(KeyCode.LeftShift);
+    }
+    private void UpdateSpeed()
+    {
+        float ratio = _currentWeight / _maxCarryWeight;
+        _currentSpeed = Mathf.Lerp(_isRunning ? _runSpeed : _walkSpeed, 0, ratio);
+    }
 
     private void MovePlayer()
     {
-        float xMovement = Input.GetAxis("Horizontal") * _currentSpeed;
-        float zMovement = Input.GetAxis("Vertical") * _currentSpeed;
+        float xMovement = Input.GetAxis("Horizontal");
+        float zMovement = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * xMovement + transform.forward * zMovement;
-        _currentInput = new Vector3(move.x, _rigidbody.linearVelocity.y, move.z);
-        _currentVelocity = new Vector3(_currentVelocity.x, _rigidbody.linearVelocity.y, _currentVelocity.z);
+         _move = transform.right * xMovement + transform.forward * zMovement;
+        //_currentVelocity = new Vector3(_currentVelocity.x, _rigidbody.linearVelocity.y, _currentVelocity.z);
         ProcessInertia();
-        _rigidbody.linearVelocity = _currentVelocity;
+        _rigidbody.linearVelocity = _currentVelocity + Vector3.up * _rigidbody.linearVelocity.y;
     }
     private void ProcessInertia()
     {
-        print(Time.deltaTime);
-        _currentVelocity = Vector3.Lerp(_currentVelocity, _currentInput, _acceleration / _currentWeight * Time.deltaTime);
+        float multiplier = _move.magnitude < 1 ? 5f : 1f;
+        Vector3 currentInput = new Vector3(_move.x * _currentSpeed, 0, _move.z * _currentSpeed);
+        _currentVelocity = Vector3.Lerp(_currentVelocity, currentInput, _acceleration * multiplier * Time.deltaTime / _currentWeight);
     }
     private void CheckTilt()
     {
@@ -75,13 +87,8 @@ public class FPSController : MonoBehaviour
     {
         _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _jumpForce, _rigidbody.linearVelocity.z);
     }
-    public void SetSpeed(float weaponMass)
-    {
-        float ratio = weaponMass / _maxCarryWeight;
-        _currentSpeed = Mathf.Lerp(_moveSpeed, 0, ratio);
+    public void SetSpeed(float weaponMass) =>
         _currentWeight = weaponMass;
-    }
-
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position + transform.up * 0.03f, -transform.up, 0.05f, _mask);
