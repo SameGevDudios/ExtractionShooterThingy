@@ -14,5 +14,5 @@ public class VelocityCameraShake : CameraShake
         _previousVelocity = _rigidbody.linearVelocity.y;
     }
     private void ShakeCamera(float force) =>
-        StartCoroutine(ShakingCamera(Vector2.right * force));
+        Shake(Vector2.right * force);
 }

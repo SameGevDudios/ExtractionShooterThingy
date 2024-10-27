@@ -2,18 +2,21 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
+    [SerializeField] private WeaponHandler _weaponHandler;
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Transform _cameraTransform;
+    [SerializeField] private Transform _cameraTransform, _weaponsTransform;
     [SerializeField] private LayerMask _mask;
 
     [SerializeField]
     private float _lookSensitivity = 2f, _walkSpeed = 2f, _runSpeed = 5f, _acceleration = 1f,
-        _jumpForce = 5f, _maxCarryWeight = 50, _tiltAngle = 15, _tiltSpeed = 1;
+        _jumpForce = 5f, _maxCarryWeight = 50, 
+        _playerTiltAngle = 15, _weaponHorizontalTilt, _weaponVerticalTilt, 
+        _playerTiltSpeed, _weaponTiltSpeed;
 
-    private float _verticalLookRotation, _currentSpeed, _currentWeight, _currentTilt;
+    private float _verticalLookRotation, _currentSpeed, _currentWeight, _currentPlayerTilt, _currentWeaponTilt;
     private Vector3 _move, _currentVelocity;
 
-    private bool _isRunning;
+    private bool _isRunning, _tiltAim;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -25,10 +28,11 @@ public class FPSController : MonoBehaviour
     {
         RotateCamera();
         CheckRunInput();
+        CheckTiltAim();
         UpdateSpeed();
         MovePlayer();
-        CheckTilt();
-        TiltPlayer();
+        ProcessPlayerTilt();
+        ProcessWeaponTilt();
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             Jump();
@@ -49,6 +53,11 @@ public class FPSController : MonoBehaviour
     {
         _isRunning = Input.GetKey(KeyCode.LeftShift);
     }
+    private void CheckTiltAim()
+    {
+        if (Input.GetMouseButtonDown(2))
+            _tiltAim = !_tiltAim;
+    }
     private void UpdateSpeed()
     {
         float ratio = _currentWeight / _maxCarryWeight;
@@ -61,7 +70,6 @@ public class FPSController : MonoBehaviour
         float zMovement = Input.GetAxis("Vertical");
 
          _move = transform.right * xMovement + transform.forward * zMovement;
-        //_currentVelocity = new Vector3(_currentVelocity.x, _rigidbody.linearVelocity.y, _currentVelocity.z);
         ProcessInertia();
         _rigidbody.linearVelocity = _currentVelocity + Vector3.up * _rigidbody.linearVelocity.y;
     }
@@ -71,27 +79,36 @@ public class FPSController : MonoBehaviour
         Vector3 currentInput = new Vector3(_move.x * _currentSpeed, 0, _move.z * _currentSpeed);
         _currentVelocity = Vector3.Lerp(_currentVelocity, currentInput, _acceleration * multiplier * Time.deltaTime / _currentWeight);
     }
-    private void CheckTilt()
+    private void ProcessPlayerTilt()
     {
         float tiltForce = Input.GetAxis("Tilt");
-        if (tiltForce == 0)
-            _currentTilt = Mathf.Lerp(_currentTilt, 0, _tiltSpeed * Time.deltaTime);
-        else
-            _currentTilt = Mathf.Lerp(_currentTilt, _tiltAngle * (tiltForce > 0 ? 1 : -1), _tiltSpeed * Time.deltaTime);
+        //if (tiltForce == 0)
+        //    _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, 0, _tiltSpeed * Time.deltaTime);
+        //else
+        //    _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, _playerTiltAngle * (tiltForce > 0 ? 1 : -1), _tiltSpeed * Time.deltaTime);
+        float newPlayerTilt = tiltForce == 0 ? 0 : _playerTiltAngle * (tiltForce > 0 ? 1 : -1);
+        _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, newPlayerTilt, _playerTiltSpeed * Time.deltaTime);
+        TiltPlayer(_currentPlayerTilt);
     }
-    private void TiltPlayer()
+    private void ProcessWeaponTilt()
     {
-        transform.localRotation = Quaternion.Euler(0, transform.localEulerAngles.y, _currentTilt);
+        float tiltForce = Input.GetAxis("Tilt");
+        bool scoped = _weaponHandler.GetCurrentWeapon().GetScope();
+        Vector3 newPosition = _tiltAim && scoped ? (tiltForce != 0 ? Vector3.right * _weaponHorizontalTilt * (tiltForce > 0 ? -1 : 1) :
+            Vector3.down * _weaponVerticalTilt) : Vector3.zero;
+        TiltWeapon(Vector3.Lerp(_weaponsTransform.localPosition, newPosition, _weaponTiltSpeed * Time.deltaTime));
     }
+    private void TiltPlayer(float newPlayerTilt) =>
+        transform.localRotation = Quaternion.Euler(0, transform.localEulerAngles.y, newPlayerTilt);
+    private void TiltWeapon(Vector3 newPosition) =>
+        _weaponsTransform.localPosition = newPosition;
     private void Jump()
     {
         _rigidbody.linearVelocity = new Vector3(_rigidbody.linearVelocity.x, _jumpForce, _rigidbody.linearVelocity.z);
     }
     public void SetSpeed(float weaponMass) =>
         _currentWeight = weaponMass;
-    private bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position + transform.up * 0.03f, -transform.up, 0.05f, _mask);
-    }
+    private bool IsGrounded() =>
+        Physics.Raycast(transform.position + transform.up * 0.03f, -transform.up, 0.05f, _mask);
 }
 

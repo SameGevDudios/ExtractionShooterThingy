@@ -74,4 +74,6 @@ public class WeaponHandler : MonoBehaviour
             _playerMovement.SetSpeed(0);
         }
     }
+    public Weapon GetCurrentWeapon() =>
+        _currentWeapon;
 }

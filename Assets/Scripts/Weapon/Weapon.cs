@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
     protected int _ammoCurrent;
     [SerializeField]
     protected float _reloadDuration, _fireRate,
-        _spread, _range, _scopeStrength, _mass;
+        _spread, _range, _mass;
     private float _cooldown;
     [SerializeField] private bool _canChangeAuto;
     protected bool _auto, _canShoot, _scoped;
@@ -92,7 +92,6 @@ public class Weapon : MonoBehaviour
         _scoped = !_scoped;
         _scopeConstraints.localPosition = _scoped ? _scopePoint.localPosition : _startPosition;
         _scopeConstraints.localEulerAngles = _scoped ? _scopePoint.localEulerAngles : Vector3.zero;
-        _cam.fieldOfView += _scopeStrength * (_scoped ? -1 : 1);
     }
     public virtual void Shoot()
     {
@@ -158,6 +157,9 @@ public class Weapon : MonoBehaviour
         _leftArmKinematics.Target = _leftTarget;
         _rightArmKinematics.Target = _rightTarget;
     }
-    public float GetMass()
-        => _mass;
+    public float GetMass() => 
+        _mass;
+    public bool GetScope() =>
+        _scoped;
+
 }

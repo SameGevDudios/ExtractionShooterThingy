@@ -7,5 +7,5 @@ public class RecoilCameraShake : CameraShake
         Instance = this;
     #endregion
     public void ShakeCamera(Vector2 recoil) =>
-        StartCoroutine(ShakingCamera(recoil));
+        Shake(recoil);
 }
