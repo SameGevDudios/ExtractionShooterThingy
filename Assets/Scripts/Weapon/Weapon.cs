@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
     {
         UpdateAmmoText();
         SetIKTargets();
+        PlayerStateUI.Instance.SetFullAutoActive(_auto);
     }
     private void OnDisable()
     {
@@ -50,12 +51,10 @@ public class Weapon : MonoBehaviour
         _canShoot = true;
         UpdateAmmoText();
     }
-    private void Update()
-    {
+    private void Update() =>
         ProcessCooldown();
-    }
-    private void ProcessCooldown() 
-        => _cooldown += Time.deltaTime;
+    private void ProcessCooldown() =>
+        _cooldown += Time.deltaTime;
     public void TryShoot()
     {
         if (Input.GetMouseButtonDown(0) || _auto)
@@ -85,13 +84,18 @@ public class Weapon : MonoBehaviour
     }
     public void ChangeAuto()
     {
-        if (_canChangeAuto) _auto = !_auto;
+        if (_canChangeAuto)
+        {
+            _auto = !_auto;
+            PlayerStateUI.Instance.SetFullAutoActive(_auto);
+        }
     }
     public virtual void Scope()
     {
         _scoped = !_scoped;
         _scopeConstraints.localPosition = _scoped ? _scopePoint.localPosition : _startPosition;
         _scopeConstraints.localEulerAngles = _scoped ? _scopePoint.localEulerAngles : Vector3.zero;
+        PlayerStateUI.Instance.SetScopeActive(_scoped);
     }
     public virtual void Shoot()
     {

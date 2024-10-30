@@ -57,6 +57,7 @@ public class FPSController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(2))
             _tiltAim = !_tiltAim;
+        PlayerStateUI.Instance.SetTiltAimActive(_tiltAim);
     }
     private void UpdateSpeed()
     {
