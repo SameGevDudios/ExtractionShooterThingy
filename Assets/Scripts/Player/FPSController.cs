@@ -14,7 +14,7 @@ public class FPSController : MonoBehaviour
         _playerTiltSpeed, _weaponTiltSpeed;
 
     private float _verticalLookRotation, _currentSpeed, _currentWeight, _currentPlayerTilt, _currentWeaponTilt;
-    private Vector3 _move, _currentVelocity;
+    private Vector3 _movementDirection, _currentVelocity;
 
     private bool _isRunning, _tiltAim;
     private void Start()
@@ -55,7 +55,7 @@ public class FPSController : MonoBehaviour
     }
     private void CheckTiltAim()
     {
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.T))
             _tiltAim = !_tiltAim;
         PlayerStateUI.Instance.SetTiltAimActive(_tiltAim);
     }
@@ -70,23 +70,20 @@ public class FPSController : MonoBehaviour
         float xMovement = Input.GetAxis("Horizontal");
         float zMovement = Input.GetAxis("Vertical");
 
-         _move = transform.right * xMovement + transform.forward * zMovement;
+         _movementDirection = transform.right * xMovement + transform.forward * zMovement;
         ProcessInertia();
         _rigidbody.linearVelocity = _currentVelocity + Vector3.up * _rigidbody.linearVelocity.y;
     }
     private void ProcessInertia()
     {
-        float multiplier = _move.magnitude < 1 ? 5f : 1f;
-        Vector3 currentInput = new Vector3(_move.x * _currentSpeed, 0, _move.z * _currentSpeed);
-        _currentVelocity = Vector3.Lerp(_currentVelocity, currentInput, _acceleration * multiplier * Time.deltaTime / _currentWeight);
+        // Multiply the inertia if no movement keys are held for faster stopping
+        print(_movementDirection.magnitude);
+        float multiplier = _movementDirection.magnitude < 1 ? 5f : 1f;
+        _currentVelocity = Vector3.Lerp(_currentVelocity, _movementDirection * _currentSpeed, _acceleration * multiplier * Time.deltaTime / _currentWeight);
     }
     private void ProcessPlayerTilt()
     {
         float tiltForce = Input.GetAxis("Tilt");
-        //if (tiltForce == 0)
-        //    _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, 0, _tiltSpeed * Time.deltaTime);
-        //else
-        //    _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, _playerTiltAngle * (tiltForce > 0 ? 1 : -1), _tiltSpeed * Time.deltaTime);
         float newPlayerTilt = tiltForce == 0 ? 0 : _playerTiltAngle * (tiltForce > 0 ? 1 : -1);
         _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, newPlayerTilt, _playerTiltSpeed * Time.deltaTime);
         TiltPlayer(_currentPlayerTilt);
