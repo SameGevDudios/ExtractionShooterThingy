@@ -9003,6 +9003,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164178872}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &164993263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164993265}
+  - component: {fileID: 164993264}
+  m_Layer: 0
+  m_Name: CameraTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &164993264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164993263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6684394f03d4142aded704cd888489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerText: {fileID: 1531158262}
+  _timeElapsed: 0
+--- !u!4 &164993265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164993263}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.68952, y: 1.3835231, z: 12.397217}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &165451960
 GameObject:
   m_ObjectHideFlags: 0
@@ -69055,6 +69101,55 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1134831804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134831806}
+  - component: {fileID: 1134831805}
+  m_Layer: 0
+  m_Name: CameraBattery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1134831805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134831804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3896664e9ae2efc4a9c5a09f390e1946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whiteNoiseDisplay: {fileID: 453035570}
+  _cameraTimer: {fileID: 164993264}
+  _batteryImage: {fileID: 1302151385}
+  _chargeText: {fileID: 1403262043}
+  _batteryCapacity: 600
+--- !u!4 &1134831806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134831804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.68952, y: 1.3835231, z: 12.397217}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1137468938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1431215749144654, guid: a60aed3109aac2e4e8b4fbd8e35506ec, type: 3}
@@ -73272,7 +73367,6 @@ GameObject:
   - component: {fileID: 1202691930}
   - component: {fileID: 1202691929}
   - component: {fileID: 1202691931}
-  - component: {fileID: 1202691932}
   m_Layer: 5
   m_Name: CameraUI
   m_TagString: Untagged
@@ -73355,23 +73449,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5.18, y: -4.12}
   m_UseGraphicAlpha: 1
---- !u!114 &1202691932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1202691927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3896664e9ae2efc4a9c5a09f390e1946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _whiteNoiseDisplay: {fileID: 453035570}
-  _cameraTimer: {fileID: 1531158264}
-  _batteryImage: {fileID: 1302151385}
-  _chargeText: {fileID: 1403262043}
-  _batteryCapacity: 300
 --- !u!43 &1204279080
 Mesh:
   m_ObjectHideFlags: 0
@@ -91611,7 +91688,6 @@ GameObject:
   - component: {fileID: 1531158261}
   - component: {fileID: 1531158263}
   - component: {fileID: 1531158262}
-  - component: {fileID: 1531158264}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -91737,20 +91813,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531158260}
   m_CullTransparentMesh: 1
---- !u!114 &1531158264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531158260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b6684394f03d4142aded704cd888489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timerText: {fileID: 1531158262}
-  _timeElapsed: 0
 --- !u!43 &1535354358
 Mesh:
   m_ObjectHideFlags: 0
@@ -125979,3 +126041,5 @@ SceneRoots:
   - {fileID: 1099300927}
   - {fileID: 1576855729}
   - {fileID: 1359922537}
+  - {fileID: 1134831806}
+  - {fileID: 164993265}

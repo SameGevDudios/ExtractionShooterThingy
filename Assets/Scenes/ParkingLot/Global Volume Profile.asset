@@ -69,46 +69,6 @@ MonoBehaviour:
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
---- !u!114 &-4329121256150074979
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
-  m_Name: ChannelMixer
-  m_EditorClassIdentifier: 
-  active: 0
-  redOutRedIn:
-    m_OverrideState: 1
-    m_Value: 200
-  redOutGreenIn:
-    m_OverrideState: 1
-    m_Value: -150
-  redOutBlueIn:
-    m_OverrideState: 1
-    m_Value: -150
-  greenOutRedIn:
-    m_OverrideState: 1
-    m_Value: -150
-  greenOutGreenIn:
-    m_OverrideState: 1
-    m_Value: 200
-  greenOutBlueIn:
-    m_OverrideState: 1
-    m_Value: -150
-  blueOutRedIn:
-    m_OverrideState: 1
-    m_Value: -150
-  blueOutGreenIn:
-    m_OverrideState: 1
-    m_Value: -150
-  blueOutBlueIn:
-    m_OverrideState: 1
-    m_Value: 200
 --- !u!114 &-1555244936115148578
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -152,7 +112,6 @@ MonoBehaviour:
   components:
   - {fileID: 884087876052640191}
   - {fileID: -1555244936115148578}
-  - {fileID: -4329121256150074979}
   - {fileID: 4693515150310070100}
   - {fileID: -6123856083388733196}
   - {fileID: -7248988357040943008}
