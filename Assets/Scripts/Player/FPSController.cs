@@ -71,6 +71,8 @@ public class FPSController : MonoBehaviour
         float zMovement = Input.GetAxis("Vertical");
 
          _movementDirection = transform.right * xMovement + transform.forward * zMovement;
+        // Vertical movement should be calceled due to the tilt mechanic
+        _movementDirection.y = 0;
         ProcessInertia();
         _rigidbody.linearVelocity = _currentVelocity + Vector3.up * _rigidbody.linearVelocity.y;
     }
