@@ -10,7 +10,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private LayerMask _mask;
     [SerializeField] private TMP_Text _ammoText;
-    [SerializeField] Recoil _recoilController;
+    [SerializeField] private Recoil _recoilController;
+    [SerializeField] private ParticleSystem _shellParticle;
 
     [Space(1)]
     [Header("Stats")]
@@ -68,6 +69,8 @@ public class Weapon : MonoBehaviour
                     AnimateShot();
                     UpdateAmmoText();
                     _recoilController.ApplyRecoil();
+                    if(_shellParticle != null)
+                        _shellParticle.Play();
                 }
                 _cooldown = 0;
             }

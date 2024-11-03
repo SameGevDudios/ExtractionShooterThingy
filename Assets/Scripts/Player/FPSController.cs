@@ -8,15 +8,15 @@ public class FPSController : MonoBehaviour
     [SerializeField] private LayerMask _mask;
 
     [SerializeField]
-    private float _lookSensitivity = 2f, _walkSpeed = 2f, _runSpeed = 5f, _acceleration = 1f,
+    private float _lookSensitivity = 2f, _sneakSpeed = 0.7f, _walkSpeed = 2f, _runSpeed = 5f, _acceleration = 1f,
         _jumpForce = 5f, _maxCarryWeight = 50, 
         _playerTiltAngle = 15, _weaponHorizontalTilt, _weaponVerticalTilt, 
         _playerTiltSpeed, _weaponTiltSpeed;
 
-    private float _verticalLookRotation, _currentSpeed, _currentWeight, _currentPlayerTilt, _currentWeaponTilt;
+    private float _verticalLookRotation, _currentSpeed, _currentMaxSpeed, _currentWeight, _currentPlayerTilt, _currentWeaponTilt;
     private Vector3 _movementDirection, _currentVelocity;
 
-    private bool _isRunning, _tiltAim;
+    private bool _tiltAim;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -27,16 +27,14 @@ public class FPSController : MonoBehaviour
     private void Update()
     {
         RotateCamera();
-        CheckRunInput();
+        CheckMovementMoveInput();
         CheckTiltAim();
         UpdateSpeed();
         MovePlayer();
         ProcessPlayerTilt();
         ProcessWeaponTilt();
         if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
             Jump();
-        }
     }
 
     private void RotateCamera()
@@ -49,9 +47,14 @@ public class FPSController : MonoBehaviour
 
         _cameraTransform.localEulerAngles = Vector3.left * _verticalLookRotation;
     }
-    private void CheckRunInput()
+    private void CheckMovementMoveInput()
     {
-        _isRunning = Input.GetKey(KeyCode.LeftShift);
+        if (Input.GetKey(KeyCode.LeftShift))
+            _currentMaxSpeed = _runSpeed;
+        else if (Input.GetKey(KeyCode.C))
+            _currentMaxSpeed = _sneakSpeed;
+        else
+            _currentMaxSpeed = _walkSpeed;
     }
     private void CheckTiltAim()
     {
@@ -62,7 +65,7 @@ public class FPSController : MonoBehaviour
     private void UpdateSpeed()
     {
         float ratio = _currentWeight / _maxCarryWeight;
-        _currentSpeed = Mathf.Lerp(_isRunning ? _runSpeed : _walkSpeed, 0, ratio);
+        _currentSpeed = Mathf.Lerp(_currentMaxSpeed, 0, ratio);
     }
 
     private void MovePlayer()
@@ -79,7 +82,6 @@ public class FPSController : MonoBehaviour
     private void ProcessInertia()
     {
         // Multiply the inertia if no movement keys are held for faster stopping
-        print(_movementDirection.magnitude);
         float multiplier = _movementDirection.magnitude < 1 ? 5f : 1f;
         _currentVelocity = Vector3.Lerp(_currentVelocity, _movementDirection * _currentSpeed, _acceleration * multiplier * Time.deltaTime / _currentWeight);
     }
