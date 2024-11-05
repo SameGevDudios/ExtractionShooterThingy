@@ -27,7 +27,7 @@ public class FPSController : MonoBehaviour
     private void Update()
     {
         RotateCamera();
-        CheckMovementMoveInput();
+        CheckMoveModeInput();
         CheckTiltAim();
         UpdateSpeed();
         MovePlayer();
@@ -47,7 +47,7 @@ public class FPSController : MonoBehaviour
 
         _cameraTransform.localEulerAngles = Vector3.left * _verticalLookRotation;
     }
-    private void CheckMovementMoveInput()
+    private void CheckMoveModeInput()
     {
         if (Input.GetKey(KeyCode.LeftShift))
             _currentMaxSpeed = _runSpeed;
