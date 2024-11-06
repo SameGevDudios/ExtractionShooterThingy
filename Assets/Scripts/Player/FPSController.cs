@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
+    [SerializeField] private MovementSway _movementSway;
     [SerializeField] private WeaponHandler _weaponHandler;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Transform _cameraTransform, _weaponsTransform;
@@ -13,7 +14,7 @@ public class FPSController : MonoBehaviour
         _playerTiltAngle = 15, _weaponHorizontalTilt, _weaponVerticalTilt, 
         _playerTiltSpeed, _weaponTiltSpeed;
 
-    private float _verticalLookRotation, _currentSpeed, _currentMaxSpeed, _currentWeight, _currentPlayerTilt, _currentWeaponTilt;
+    private float _verticalLookRotation, _currentSpeed, _currentMaxSpeed, _currentWeight, _currentPlayerTilt;
     private Vector3 _movementDirection, _currentVelocity;
 
     private bool _tiltAim;
@@ -30,11 +31,14 @@ public class FPSController : MonoBehaviour
         CheckMoveModeInput();
         CheckTiltAim();
         UpdateSpeed();
+        CheckInput();
         MovePlayer();
-        ProcessPlayerTilt();
-        ProcessWeaponTilt();
+        TilePlayer();
+        TiltWeapon();
         if (Input.GetButtonDown("Jump") && IsGrounded())
             Jump();
+
+        _movementSway.ProcessMovement(_movementDirection, _currentSpeed);
     }
 
     private void RotateCamera()
@@ -70,29 +74,34 @@ public class FPSController : MonoBehaviour
 
     private void MovePlayer()
     {
-        float xMovement = Input.GetAxis("Horizontal");
-        float zMovement = Input.GetAxis("Vertical");
-
-         _movementDirection = transform.right * xMovement + transform.forward * zMovement;
-        // Vertical movement should be calceled due to the tilt mechanic
-        _movementDirection.y = 0;
         ProcessInertia();
         _rigidbody.linearVelocity = _currentVelocity + Vector3.up * _rigidbody.linearVelocity.y;
     }
+
+    private void CheckInput()
+    {
+        float xMovement = Input.GetAxis("Horizontal");
+        float zMovement = Input.GetAxis("Vertical");
+
+        _movementDirection = transform.right * xMovement + transform.forward * zMovement;
+        // Vertical movement should be calceled due to the tilt mechanic
+        _movementDirection.y = 0;
+    }
+
     private void ProcessInertia()
     {
         // Multiply the inertia if no movement keys are held for faster stopping
         float multiplier = _movementDirection.magnitude < 1 ? 5f : 1f;
         _currentVelocity = Vector3.Lerp(_currentVelocity, _movementDirection * _currentSpeed, _acceleration * multiplier * Time.deltaTime / _currentWeight);
     }
-    private void ProcessPlayerTilt()
+    private void TilePlayer()
     {
         float tiltForce = Input.GetAxis("Tilt");
         float newPlayerTilt = tiltForce == 0 ? 0 : _playerTiltAngle * (tiltForce > 0 ? 1 : -1);
         _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, newPlayerTilt, _playerTiltSpeed * Time.deltaTime);
         TiltPlayer(_currentPlayerTilt);
     }
-    private void ProcessWeaponTilt()
+    private void TiltWeapon()
     {
         float tiltForce = Input.GetAxis("Tilt");
         bool scoped = _weaponHandler.GetCurrentWeapon().GetScope();
@@ -110,6 +119,8 @@ public class FPSController : MonoBehaviour
     }
     public void SetSpeed(float weaponMass) =>
         _currentWeight = weaponMass;
+    public void SetMovementSway(MovementSway newSway) =>
+        _movementSway = newSway;
     private bool IsGrounded() =>
         Physics.Raycast(transform.position + transform.up * 0.03f, -transform.up, 0.05f, _mask);
 }
