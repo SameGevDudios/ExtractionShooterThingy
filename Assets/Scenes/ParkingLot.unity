@@ -52649,6 +52649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2855131e3f15614a9f695627e84e90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1099300924}
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
@@ -68234,12 +68235,6 @@ MonoBehaviour:
   - {fileID: 1975755401}
   - {fileID: 1394298235}
   - {fileID: 2040431479}
-  _movementSway:
-  - {fileID: 860041737}
-  - {fileID: 1535192039}
-  - {fileID: 1121539748}
-  - {fileID: 1251157393}
-  - {fileID: 1995495547}
 --- !u!114 &1099300923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68260,7 +68255,7 @@ MonoBehaviour:
   _mask:
     serializedVersion: 2
     m_Bits: 1
-  _lookSensitivity: 0
+  _lookSensitivity: 2
   _sneakSpeed: 0.7
   _walkSpeed: 3
   _runSpeed: 7
@@ -69738,6 +69733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2855131e3f15614a9f695627e84e90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1099300924}
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
@@ -79193,6 +79189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2855131e3f15614a9f695627e84e90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1099300924}
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.02
@@ -94526,6 +94523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2855131e3f15614a9f695627e84e90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1099300924}
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
@@ -122283,6 +122281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2855131e3f15614a9f695627e84e90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1099300924}
   _idleSpeed: 5
   _swaySpeed: 0.4
   _horizontalSwayDistance: 0.02
