@@ -4,7 +4,6 @@ public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] private FPSController _playerMovement;
     [SerializeField] private List<Weapon> _weapon;
-    [SerializeField] private List<MovementSway> _movementSway;
     private Weapon _currentWeapon;
     private void Start()
     {
@@ -64,7 +63,6 @@ public class WeaponHandler : MonoBehaviour
             _currentWeapon.gameObject.SetActive(false);
         _currentWeapon = _weapon[index];
         _currentWeapon.gameObject.SetActive(true);
-        _playerMovement.SetMovementSway(_movementSway[index]);
         _playerMovement.SetSpeed(_currentWeapon.GetMass());
     }
     public void HolsterWeapon()

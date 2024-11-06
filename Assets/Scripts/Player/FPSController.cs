@@ -37,8 +37,6 @@ public class FPSController : MonoBehaviour
         TiltWeapon();
         if (Input.GetButtonDown("Jump") && IsGrounded())
             Jump();
-
-        _movementSway.ProcessMovement(_movementDirection, _currentSpeed);
     }
 
     private void RotateCamera()
