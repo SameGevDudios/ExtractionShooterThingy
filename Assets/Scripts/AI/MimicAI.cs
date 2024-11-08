@@ -53,8 +53,9 @@ public class MimicAI : MonoBehaviour
     }
     private bool PlayerInSight()
     {
-        Physics.Raycast(transform.position, _player.transform.position, out RaycastHit hit);
-        return hit.collider.gameObject == _player;
+        float playerHeight = 2f;
+        Physics.Raycast(transform.position, _player.transform.position - transform.position + Vector3.up * playerHeight / 2, out RaycastHit hit);
+        return hit.collider.CompareTag("Player");
     }
     private Vector3 GetRandomScoutPoint()
     {
