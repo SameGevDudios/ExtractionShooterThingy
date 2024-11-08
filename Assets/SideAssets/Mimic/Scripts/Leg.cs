@@ -72,7 +72,7 @@ namespace MimicSpace
             // is a bit offset for every leg part
             Vector2 footOffset = Random.insideUnitCircle.normalized * finalFootDistance;
             RaycastHit hit;
-            Physics.Raycast(footPosition + Vector3.up * 5f + new Vector3(footOffset.x, 0, footOffset.y), -Vector3.up, out hit);
+            Physics.Raycast(footPosition + new Vector3(footOffset.x, 0, footOffset.y), -Vector3.up, out hit);
             handles[7] = hit.point;
 
             legHeight = Random.Range(legMinHeight, legMaxHeight);

@@ -53,6 +53,7 @@ namespace MimicSpace
         [Tooltip("This must be updates as the Mimin moves to assure great leg placement")]
         public Vector3 velocity;
 
+        private Vector3 previousPosition;
         void Start()
         {
             ResetMimic();
@@ -93,7 +94,7 @@ namespace MimicSpace
         {
             if (!canCreateLeg)
                 return;
-
+            velocity = transform.position - previousPosition;
             // New leg origin is placed in front of the mimic
             legPlacerOrigin = transform.position + velocity.normalized * newLegRadius;
 
@@ -123,10 +124,8 @@ namespace MimicSpace
                     newLegPosition = transform.position + ((newLegPosition - transform.position) + velocity.normalized * (newLegPosition - transform.position).magnitude) / 2f;
 
                 RaycastHit hit;
-                Physics.Raycast(newLegPosition + Vector3.up * 10f, -Vector3.up, out hit);
+                Physics.Raycast(newLegPosition, -Vector3.up, out hit);
                 Vector3 myHit = hit.point;
-                if (Physics.Linecast(transform.position, hit.point, out hit))
-                    myHit = hit.point;
 
                 float lifeTime = Random.Range(minLegLifetime, maxLegLifetime);
 
@@ -138,6 +137,7 @@ namespace MimicSpace
                         return;
                 }
             }
+            previousPosition = transform.position;
         }
 
         // object pooling to limit leg instantiation
