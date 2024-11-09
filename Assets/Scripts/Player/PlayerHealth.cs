@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 #endif
     public void GetDamage(int damage)
     {
-        ImpactCameraShake.Instance.ShakeCamera(ShakeVector());
+        ImpactCameraShake.Instance.ShakeCamera(ShakeVector() * damage);
         _health = Mathf.Max(0, _health - damage);
         _battery.UpdateCharge(_health);
         if(_health == 0)
@@ -38,8 +38,8 @@ public class PlayerHealth : MonoBehaviour
     }
     private Vector2 ShakeVector()
     {
-        float xShake = 0.1f;
-        float yShake = 0.1f;
+        float xShake = 0.01f;
+        float yShake = 0.01f;
         return new Vector2(
             Random.Range(-xShake, xShake),
             Random.Range(-yShake, yShake)
