@@ -1,8 +1,8 @@
 using UnityEngine;
-public class RecoilCameraShake : CameraShake
+public class ImpactCameraShake : CameraShake
 {
     #region Singleton
-    public static RecoilCameraShake Instance;
+    public static ImpactCameraShake Instance;
     private void Awake() =>
         Instance = this;
     #endregion
