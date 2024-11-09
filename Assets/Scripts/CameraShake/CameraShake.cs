@@ -1,12 +1,15 @@
-using System.Collections;
 using UnityEngine;
 
-public abstract class CameraShake : MonoBehaviour
+public class CameraShake : MonoBehaviour
 {
-    [SerializeField] protected Transform _camTransform;
-    [SerializeField]
-    private float _shakeStrength;
-    protected void Shake(Vector2 shake)
+    [SerializeField] private Transform _camTransform;
+    [SerializeField] private float _shakeStrength;
+    #region Singleton
+    public static CameraShake Instance;
+    private void Awake() =>
+        Instance = this;
+    #endregion
+    public void ShakeCamera(Vector2 shake)
     {
         int direction = Random.Range(0, 2) > 0 ? 1 : -1;
         float shakeX = _shakeStrength * shake.x * direction;

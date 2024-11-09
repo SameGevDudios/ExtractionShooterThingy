@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 #endif
     public void GetDamage(int damage)
     {
-        ImpactCameraShake.Instance.ShakeCamera(ShakeVector() * damage);
+        CameraShake.Instance.ShakeCamera(ShakeVector() * damage);
         _health = Mathf.Max(0, _health - damage);
         _battery.UpdateCharge(_health);
         if(_health == 0)

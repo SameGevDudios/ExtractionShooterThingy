@@ -10,6 +10,6 @@ public class Recoil : MonoBehaviour
         _gunRigidbody.AddForce(transform.forward * _movementRecoil.x + transform.up * _movementRecoil.y, ForceMode.Impulse);
         float sideRecoil = Random.Range(-_rotationRecoil.x, _rotationRecoil.x);
         _gunRigidbody.transform.Rotate(Vector3.up * sideRecoil + Vector3.right * _rotationRecoil.y);
-        ImpactCameraShake.Instance.ShakeCamera(_rotationRecoil * _camShakeForce);
+        CameraShake.Instance.ShakeCamera(_rotationRecoil * _camShakeForce);
     }
 }
