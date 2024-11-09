@@ -17,7 +17,6 @@ public class Shotgun : Weapon
             _ammoPocket--;
             AnimateReloadBullet();
             UpdateAmmoText();
-            print("reloaded");
             Invoke("Reload", _reloadDuration);
         }
         else
