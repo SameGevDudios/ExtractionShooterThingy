@@ -2119,7 +2119,7 @@ Transform:
   m_GameObject: {fileID: 1312899040334697686}
   serializedVersion: 2
   m_LocalRotation: {x: 3.038991e-11, y: 1.1131413e-16, z: -7.730815e-12, w: 1}
-  m_LocalPosition: {x: -0.0002, y: 0.0029, z: -0.1189}
+  m_LocalPosition: {x: -0.0002, y: 0.0029, z: 0.0018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5329,6 +5329,7 @@ GameObject:
   - component: {fileID: 1950527086196154228}
   - component: {fileID: 1169847697977652893}
   - component: {fileID: 7571591882130080922}
+  - component: {fileID: 2449223314569940776}
   m_Layer: 0
   m_Name: SM_Wep_MachineGun_Slide_01
   m_TagString: Untagged
@@ -5404,6 +5405,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2449223314569940776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821735319414086099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc889e98b6038c44b996d22ca0dc116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _springForce: 500
+  _damping: 40
+  targetPosition: {x: 0.04280297, y: 0.1053334, z: 0.1457623}
 --- !u!1 &2824951618328968772
 GameObject:
   m_ObjectHideFlags: 0
@@ -6016,7 +6032,7 @@ MonoBehaviour:
   _gunPoint: {fileID: 1231822109042988848}
   _scopePoint: {fileID: 5787158603153964245}
   _scopeConstraints: {fileID: 4154838300138981375}
-  _bolt: {fileID: 0}
+  _bolt: {fileID: 2024255639120693710}
   _recoilController: {fileID: 9102103641817144742}
   _shellParticle: {fileID: 2711475655678884041}
   _ammoPocket: 2126
@@ -6027,7 +6043,7 @@ MonoBehaviour:
   _fireRate: 0.05
   _spread: 0
   _range: 120
-  _boltOffset: 0
+  _boltOffset: -0.1
   _canChangeAuto: 1
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
@@ -7515,7 +7531,7 @@ MonoBehaviour:
   _gunPoint: {fileID: 2934662870086030762}
   _scopePoint: {fileID: 4940889810508393181}
   _scopeConstraints: {fileID: 8590950310846880307}
-  _bolt: {fileID: 0}
+  _bolt: {fileID: 1950527086196154228}
   _recoilController: {fileID: 4215598311105958448}
   _shellParticle: {fileID: 7091086146461717364}
   _ammoPocket: 2311
@@ -7526,7 +7542,7 @@ MonoBehaviour:
   _fireRate: 0.05
   _spread: 0
   _range: 120
-  _boltOffset: 0
+  _boltOffset: -0.1
   _canChangeAuto: 1
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
@@ -8865,7 +8881,7 @@ MonoBehaviour:
   _gunPoint: {fileID: 6224027293195769936}
   _scopePoint: {fileID: 6393780335423124980}
   _scopeConstraints: {fileID: 503246264373250475}
-  _bolt: {fileID: 0}
+  _bolt: {fileID: 2612644880741065796}
   _recoilController: {fileID: 6028260021091093053}
   _shellParticle: {fileID: 5249081963539224414}
   _ammoPocket: 2344
@@ -8876,7 +8892,7 @@ MonoBehaviour:
   _fireRate: 0.2
   _spread: 4
   _range: 120
-  _boltOffset: 0
+  _boltOffset: -0.3
   _canChangeAuto: 1
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
@@ -10125,6 +10141,7 @@ GameObject:
   - component: {fileID: 2024255639120693710}
   - component: {fileID: 7103357327229823894}
   - component: {fileID: 4236410288155164312}
+  - component: {fileID: 4282259604196505472}
   m_Layer: 0
   m_Name: Pistol_B_BarrelGuard
   m_TagString: Untagged
@@ -10200,6 +10217,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4282259604196505472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5469942957103739351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc889e98b6038c44b996d22ca0dc116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _springForce: 750
+  _damping: 50
+  targetPosition: {x: 0, y: 0.08525001, z: 0.09600001}
 --- !u!1 &5495369865538567162
 GameObject:
   m_ObjectHideFlags: 0
@@ -10700,7 +10732,7 @@ MonoBehaviour:
   _gunPoint: {fileID: 1869332727548777646}
   _scopePoint: {fileID: 6909541882511989876}
   _scopeConstraints: {fileID: 1403179202109358778}
-  _bolt: {fileID: 0}
+  _bolt: {fileID: 6046536653753220199}
   _recoilController: {fileID: 5566209131547459072}
   _shellParticle: {fileID: 8962598618079849999}
   _ammoPocket: 2400
@@ -10711,7 +10743,7 @@ MonoBehaviour:
   _fireRate: 0.35
   _spread: 0
   _range: 120
-  _boltOffset: 0
+  _boltOffset: -0.5
   _canChangeAuto: 1
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
@@ -12724,9 +12756,11 @@ GameObject:
   - component: {fileID: 8534208118949077387}
   - component: {fileID: 6833381040634103393}
   - component: {fileID: 1103154162992656902}
+  - component: {fileID: 4747446344712304903}
   - component: {fileID: 2834725912171688759}
   - component: {fileID: 4623425367923627361}
   - component: {fileID: 6636585838196419607}
+  - component: {fileID: 6521303506615722012}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -12831,6 +12865,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &4747446344712304903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584956662724233319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 548a57f14ff1d7c458a5a126ba668dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battery: {fileID: 4690793769930402506}
+  _maxHealth: 100
 --- !u!114 &2834725912171688759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12893,12 +12941,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd90ced6cdc617c4c9fc41226a5bf70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: {fileID: 0}
+  _playerHealth: {fileID: 4747446344712304903}
   _rigidbody: {fileID: 1103154162992656902}
-  _shakeForce: 0
-  _fallDamageForce: 0
+  _shakeForce: 0.04
+  _fallDamageForce: 250
   _shakeThreshold: 0
-  _fallDamageThreshold: 0
+  _fallDamageThreshold: -6
+--- !u!114 &6521303506615722012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584956662724233319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801a92e2417a9564d9eab41647c38d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camTransform: {fileID: 1101258206053324754}
+  _shakeStrength: 15
 --- !u!1 &6649316896106027126
 GameObject:
   m_ObjectHideFlags: 0
@@ -12974,6 +13036,7 @@ GameObject:
   - component: {fileID: 2612644880741065796}
   - component: {fileID: 2857529264586201981}
   - component: {fileID: 4994070446418112053}
+  - component: {fileID: 2912857862363795419}
   m_Layer: 0
   m_Name: ShotGun_A_Bolt
   m_TagString: Untagged
@@ -13049,6 +13112,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2912857862363795419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712694511514002379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc889e98b6038c44b996d22ca0dc116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _springForce: 300
+  _damping: 30
+  targetPosition: {x: 0, y: 0.0685, z: 0.09024999}
 --- !u!1 &6712859240118344338
 GameObject:
   m_ObjectHideFlags: 0
@@ -17137,6 +17215,7 @@ GameObject:
   - component: {fileID: 6046536653753220199}
   - component: {fileID: 7565803445828128662}
   - component: {fileID: 1305466405095178535}
+  - component: {fileID: 309904154939034730}
   m_Layer: 0
   m_Name: SM_Wep_Sniper_Heavy_Slide_01
   m_TagString: Untagged
@@ -17212,6 +17291,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &309904154939034730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303618138869664022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc889e98b6038c44b996d22ca0dc116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _springForce: 500
+  _damping: 40
+  targetPosition: {x: 0.04368279, y: 0.1053568, z: 0.2404707}
 --- !u!1 &8374714598002316268
 GameObject:
   m_ObjectHideFlags: 0
@@ -19396,7 +19490,7 @@ Transform:
   m_GameObject: {fileID: 9202486994195650542}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000003774895, y: -1.110223e-16, z: 1.11022296e-16, w: 1}
-  m_LocalPosition: {x: -0, y: 0.074, z: -0.089999996}
+  m_LocalPosition: {x: -0, y: 0.074, z: -0.2113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
