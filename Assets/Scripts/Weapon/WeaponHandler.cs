@@ -53,8 +53,6 @@ public class WeaponHandler : MonoBehaviour
             ChangeWeapon(3);
         else if (Input.GetKeyDown(KeyCode.Alpha5))
             ChangeWeapon(4);
-        else if (Input.GetKeyDown(KeyCode.H))
-            HolsterWeapon();
     }
 
     public void ChangeWeapon(int index)
