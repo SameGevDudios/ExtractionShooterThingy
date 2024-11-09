@@ -10,21 +10,21 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private LayerMask _mask;
     [SerializeField] private TMP_Text _ammoText;
+    [SerializeField] private Transform _gunPoint, _scopePoint, _scopeConstraints, _bolt;
     [SerializeField] private Recoil _recoilController;
     [SerializeField] private ParticleSystem _shellParticle;
+    Vector3 _gunStartPosition, _boltStartPosition;
 
     [Space(1)]
     [Header("Stats")]
     [SerializeField] protected int _ammoPocket, _ammoMax, _damage;
     protected int _ammoCurrent;
     [SerializeField]
-    protected float _reloadDuration, _fireRate,
-        _spread, _range, _mass;
+    protected float _mass, _reloadDuration, _fireRate,
+        _spread, _range, _boltOffset;
     private float _cooldown;
     [SerializeField] private bool _canChangeAuto;
     protected bool _auto, _canShoot, _scoped;
-    [SerializeField] Transform _gunPoint, _scopePoint, _scopeConstraints;
-    Vector3 _startPosition;
 
     [Space(1)]
     [Header("Inverse Kinematics")]
@@ -48,7 +48,8 @@ public class Weapon : MonoBehaviour
         _rigidbody.mass = _mass;
         _ammoCurrent = _ammoMax;
         _cooldown = _fireRate;
-        _startPosition = _scopeConstraints.localPosition;
+        _gunStartPosition = _scopeConstraints.localPosition;
+        _boltStartPosition = _bolt.localPosition;
         _canShoot = true;
         UpdateAmmoText();
     }
@@ -68,6 +69,7 @@ public class Weapon : MonoBehaviour
                     Shoot();
                     AnimateShot();
                     UpdateAmmoText();
+                    MoveBolt();
                     _recoilController.ApplyRecoil();
                     if(_shellParticle != null)
                         _shellParticle.Play();
@@ -96,7 +98,7 @@ public class Weapon : MonoBehaviour
     public virtual void Scope()
     {
         _scoped = !_scoped;
-        _scopeConstraints.localPosition = _scoped ? _scopePoint.localPosition : _startPosition;
+        _scopeConstraints.localPosition = _scoped ? _scopePoint.localPosition : _gunStartPosition;
         _scopeConstraints.localEulerAngles = _scoped ? _scopePoint.localEulerAngles : Vector3.zero;
         PlayerStateUI.Instance.SetScopeActive(_scoped);
     }
@@ -158,6 +160,11 @@ public class Weapon : MonoBehaviour
     {
         if(_ammoText != null)
             _ammoText.text = $"{_ammoCurrent}/{_ammoPocket}";
+    }
+    private void MoveBolt()
+    {
+        if (_bolt != null)
+            _bolt.localPosition = _boltStartPosition + Vector3.forward * _boltOffset;
     }
     private void SetIKTargets()
     {
