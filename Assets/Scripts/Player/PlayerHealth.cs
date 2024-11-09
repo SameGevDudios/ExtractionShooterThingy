@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
     private int _health;
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _health = _maxHealth;
         _battery.SetMaxCharge(_health);
     }
@@ -35,6 +37,8 @@ public class PlayerHealth : MonoBehaviour
     private void Death()
     {
         _battery.ActivateWhiteNoise();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     private Vector2 ShakeVector()
     {
