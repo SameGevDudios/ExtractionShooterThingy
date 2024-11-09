@@ -31,7 +31,6 @@ public class FallDamage : MonoBehaviour
             if(_fallTime > 0)
             {
                 int damage = (int)(_fallTime * _fallTime * _fallDamageForce);
-                print($"Damage: {damage}");
                 if(damage > 0)
                     _playerHealth.GetDamage(damage);
                 _fallTime = 0;
