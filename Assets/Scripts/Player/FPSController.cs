@@ -19,8 +19,6 @@ public class FPSController : MonoBehaviour
     private bool _tiltAim;
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
         _currentSpeed = _walkSpeed;
     }
 
