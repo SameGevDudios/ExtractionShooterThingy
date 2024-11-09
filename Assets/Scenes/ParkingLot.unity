@@ -109343,9 +109343,21 @@ PrefabInstance:
       propertyPath: _boltOffset
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2015160932035571018, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0018
+      objectReference: {fileID: 0}
     - target: {fileID: 3452428359166650500, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502866315088549396, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502866315088549396, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2113
       objectReference: {fileID: 0}
     - target: {fileID: 4894532434782836576, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: _bolt
@@ -109355,9 +109367,13 @@ PrefabInstance:
       propertyPath: _boltOffset
       value: -0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 5737298646380497483, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+    - target: {fileID: 4972315188435866744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5737298646380497483, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6584956662724233319, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_Name
