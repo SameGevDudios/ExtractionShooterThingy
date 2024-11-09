@@ -49,7 +49,8 @@ public class Weapon : MonoBehaviour
         _ammoCurrent = _ammoMax;
         _cooldown = _fireRate;
         _gunStartPosition = _scopeConstraints.localPosition;
-        _boltStartPosition = _bolt.localPosition;
+        if(_bolt != null)
+            _boltStartPosition = _bolt.localPosition;
         _canShoot = true;
         UpdateAmmoText();
     }
