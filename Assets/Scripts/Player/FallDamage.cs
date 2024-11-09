@@ -5,7 +5,7 @@ public class FallDamage : MonoBehaviour
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _shakeForce, _fallDamageForce, 
-        _shakeVelocityThreshold, _fallDamageThreshold;
+        _shakeThreshold, _fallDamageThreshold;
     private float _currentVelocity, _previousVelocity, _impactForce, _fallTime;
     private void Update()
     {
@@ -16,7 +16,7 @@ public class FallDamage : MonoBehaviour
     {
         _currentVelocity = _rigidbody.linearVelocity.y;
         _impactForce = Mathf.Abs(_currentVelocity - _previousVelocity);
-        if (_impactForce > _shakeVelocityThreshold)
+        if (_impactForce > _shakeThreshold)
             CameraShake.Instance.ShakeCamera(_shakeForce * _impactForce);
         _previousVelocity = _rigidbody.linearVelocity.y;
     }
