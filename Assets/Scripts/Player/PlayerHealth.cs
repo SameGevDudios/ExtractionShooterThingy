@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -39,6 +40,10 @@ public class PlayerHealth : MonoBehaviour
         _battery.ActivateWhiteNoise();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+    public void Respawn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private Vector2 ShakeVector()
     {
