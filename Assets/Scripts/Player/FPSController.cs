@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
-    [SerializeField] private MovementSway _movementSway;
     [SerializeField] private WeaponHandler _weaponHandler;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private Transform _cameraTransform, _weaponsTransform;
@@ -103,7 +102,7 @@ public class FPSController : MonoBehaviour
     {
         float tiltForce = Input.GetAxis("Tilt");
         bool scoped = _weaponHandler.GetCurrentWeapon().GetScope();
-        Vector3 newPosition = _tiltAim && scoped ? (tiltForce != 0 ? Vector3.right * _weaponHorizontalTilt * (tiltForce > 0 ? -1 : 1) :
+        Vector3 newPosition = _tiltAim && scoped ? (tiltForce != 0 ? (tiltForce > 0 ? -1 : 1) * _weaponHorizontalTilt * Vector3.right :
             Vector3.down * _weaponVerticalTilt) : Vector3.zero;
         TiltWeapon(Vector3.Lerp(_weaponsTransform.localPosition, newPosition, _weaponTiltSpeed * Time.deltaTime));
     }
@@ -117,8 +116,6 @@ public class FPSController : MonoBehaviour
     }
     public void SetSpeed(float weaponMass) =>
         _currentWeight = weaponMass;
-    public void SetMovementSway(MovementSway newSway) =>
-        _movementSway = newSway;
     private bool IsGrounded() =>
         Physics.Raycast(transform.position + transform.up * 0.03f, -transform.up, 0.05f, _mask);
 }
