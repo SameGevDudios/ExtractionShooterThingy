@@ -74657,6 +74657,57 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1416735891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1416735893}
+  - component: {fileID: 1416735892}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1416735892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416735891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f98f4a190e4846418682ac7a2beaef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pools:
+  - Tag: bulletTrail
+    ObjectToPool: {fileID: 5197208594708451103, guid: 512f4381fb0ef9843bb0f236e9c5d05c, type: 3}
+    Size: 20
+  - Tag: BulletImpactParticles
+    ObjectToPool: {fileID: 7605370652532387279, guid: f60e42f2ca37633499e652c232a49873, type: 3}
+    Size: 120
+--- !u!4 &1416735893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416735891}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1417470374
 Mesh:
   m_ObjectHideFlags: 0
@@ -109262,12 +109313,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6714126019479671744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: Pools.Array.data[1].Size
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6714126019479671744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: Pools.Array.data[1].ObjectToPool
       value: 
-      objectReference: {fileID: 3442697519100679630, guid: f60e42f2ca37633499e652c232a49873, type: 3}
+      objectReference: {fileID: 2292889899550368631, guid: f60e42f2ca37633499e652c232a49873, type: 3}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -22.789
@@ -109424,3 +109475,4 @@ SceneRoots:
   - {fileID: 4138155794222335584}
   - {fileID: 1359922537}
   - {fileID: 2140800654}
+  - {fileID: 1416735893}

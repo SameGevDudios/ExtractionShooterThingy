@@ -115,6 +115,7 @@ public class Weapon : MonoBehaviour
             if (enemy != null) enemy.GetDamage(_damage);
 
             trail.SetPositions(_gunPoint.position, hit.point);
+            PoolManager.Instance.InstantiateFromPool("BulletImpactParticles", hit.point, Quaternion.LookRotation(hit.normal));
         }
         else
         {

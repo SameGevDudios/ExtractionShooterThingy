@@ -1642,54 +1642,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: c9fda2dd08379234ba1ed7cec5771859, type: 2}
---- !u!1 &1130453696843799970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6686179672897526981}
-  - component: {fileID: 6714126019479671744}
-  m_Layer: 0
-  m_Name: PoolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6686179672897526981
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130453696843799970}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 47.621044, y: 1.2691047, z: -3.6846046}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7190722226130035227}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6714126019479671744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130453696843799970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f98f4a190e4846418682ac7a2beaef7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pools:
-  - Tag: bulletTrail
-    ObjectToPool: {fileID: 5197208594708451103, guid: 512f4381fb0ef9843bb0f236e9c5d05c, type: 3}
-    Size: 20
 --- !u!1 &1178124625219538379
 GameObject:
   m_ObjectHideFlags: 0
@@ -12786,7 +12738,6 @@ Transform:
   - {fileID: 7146571664524222682}
   - {fileID: 7857271759377237077}
   - {fileID: 1004762891374971926}
-  - {fileID: 6686179672897526981}
   - {fileID: 3206394998316774431}
   - {fileID: 542238747086943794}
   - {fileID: 9086335888033862698}
