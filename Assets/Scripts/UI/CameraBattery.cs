@@ -26,8 +26,7 @@ public class CameraBattery : MonoBehaviour
     }
     private void CheckCharge()
     {
-        if (_currentCharge < 0.2f)
-            _batteryImage.color = Color.red;
+        _batteryImage.color = _currentCharge < 0.2f ? Color.red : Color.white;
     }
     private void UpdateBatteryImage() =>
          _batteryImage.fillAmount = _currentCharge;
