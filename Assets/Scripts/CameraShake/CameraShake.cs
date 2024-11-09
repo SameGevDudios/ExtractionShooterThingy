@@ -17,4 +17,11 @@ public class CameraShake : MonoBehaviour
         float shakeY = _shakeStrength * shake.y;
         _camTransform.Rotate(Vector3.forward * shakeX + Vector3.right * shakeY);
     }
+    public void ShakeCamera(float force)
+    {
+        float shakeX = _shakeStrength * Random.Range(-force, force);
+        // No muliplying by direction and another shake.y to avoid vertical downward shake
+        float shakeY = _shakeStrength * Random.Range(0, force);
+        _camTransform.Rotate(Vector3.forward * shakeX + Vector3.right * shakeY);
+    }
 }
