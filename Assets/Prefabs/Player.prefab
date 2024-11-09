@@ -2626,20 +2626,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _ammoText: {fileID: 853309806076055494}
+  _gunPoint: {fileID: 3047134581740408544}
+  _scopePoint: {fileID: 425072136092018061}
+  _scopeConstraints: {fileID: 4963259200059519497}
+  _bolt: {fileID: 0}
   _recoilController: {fileID: 2526987647069679331}
   _shellParticle: {fileID: 0}
   _ammoPocket: 2400
   _ammoMax: 6
   _damage: 1
+  _mass: 1
   _reloadDuration: 0
   _fireRate: 0
   _spread: 0
   _range: 120
-  _mass: 1
+  _boltOffset: 0
   _canChangeAuto: 0
-  _gunPoint: {fileID: 3047134581740408544}
-  _scopePoint: {fileID: 425072136092018061}
-  _scopeConstraints: {fileID: 4963259200059519497}
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
   _leftTarget: {fileID: 1436342951714026462}
@@ -6010,20 +6012,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _ammoText: {fileID: 853309806076055494}
+  _gunPoint: {fileID: 1231822109042988848}
+  _scopePoint: {fileID: 5787158603153964245}
+  _scopeConstraints: {fileID: 4154838300138981375}
+  _bolt: {fileID: 0}
   _recoilController: {fileID: 9102103641817144742}
   _shellParticle: {fileID: 2711475655678884041}
   _ammoPocket: 2126
   _ammoMax: 19
   _damage: 1
+  _mass: 1.2
   _reloadDuration: 0
   _fireRate: 0.05
   _spread: 0
   _range: 120
-  _mass: 1.2
+  _boltOffset: 0
   _canChangeAuto: 1
-  _gunPoint: {fileID: 1231822109042988848}
-  _scopePoint: {fileID: 5787158603153964245}
-  _scopeConstraints: {fileID: 4154838300138981375}
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
   _leftTarget: {fileID: 1159800911649732268}
@@ -7507,20 +7511,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _ammoText: {fileID: 853309806076055494}
+  _gunPoint: {fileID: 2934662870086030762}
+  _scopePoint: {fileID: 4940889810508393181}
+  _scopeConstraints: {fileID: 8590950310846880307}
+  _bolt: {fileID: 0}
   _recoilController: {fileID: 4215598311105958448}
   _shellParticle: {fileID: 7091086146461717364}
   _ammoPocket: 2311
   _ammoMax: 60
   _damage: 1
+  _mass: 10
   _reloadDuration: 0
   _fireRate: 0.05
   _spread: 0
   _range: 120
-  _mass: 10
+  _boltOffset: 0
   _canChangeAuto: 1
-  _gunPoint: {fileID: 2934662870086030762}
-  _scopePoint: {fileID: 4940889810508393181}
-  _scopeConstraints: {fileID: 8590950310846880307}
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
   _leftTarget: {fileID: 5006286881328370275}
@@ -8855,20 +8861,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _ammoText: {fileID: 853309806076055494}
+  _gunPoint: {fileID: 6224027293195769936}
+  _scopePoint: {fileID: 6393780335423124980}
+  _scopeConstraints: {fileID: 503246264373250475}
+  _bolt: {fileID: 0}
   _recoilController: {fileID: 6028260021091093053}
   _shellParticle: {fileID: 5249081963539224414}
   _ammoPocket: 2344
   _ammoMax: 8
   _damage: 1
+  _mass: 2
   _reloadDuration: 0
   _fireRate: 0.2
   _spread: 4
   _range: 120
-  _mass: 2
+  _boltOffset: 0
   _canChangeAuto: 1
-  _gunPoint: {fileID: 6224027293195769936}
-  _scopePoint: {fileID: 6393780335423124980}
-  _scopeConstraints: {fileID: 503246264373250475}
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
   _leftTarget: {fileID: 4102560828623630723}
@@ -10411,7 +10419,6 @@ MonoBehaviour:
   _cameraTimer: {fileID: 1047768413913708178}
   _batteryImage: {fileID: 5346803179189031701}
   _chargeText: {fileID: 4798949267447126918}
-  _batteryCapacity: 600
 --- !u!1 &5671970063575699877
 GameObject:
   m_ObjectHideFlags: 0
@@ -10689,20 +10696,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _ammoText: {fileID: 853309806076055494}
+  _gunPoint: {fileID: 1869332727548777646}
+  _scopePoint: {fileID: 6909541882511989876}
+  _scopeConstraints: {fileID: 1403179202109358778}
+  _bolt: {fileID: 0}
   _recoilController: {fileID: 5566209131547459072}
   _shellParticle: {fileID: 8962598618079849999}
   _ammoPocket: 2400
   _ammoMax: 5
   _damage: 1
+  _mass: 7
   _reloadDuration: 0
   _fireRate: 0.35
   _spread: 0
   _range: 120
-  _mass: 7
+  _boltOffset: 0
   _canChangeAuto: 1
-  _gunPoint: {fileID: 1869332727548777646}
-  _scopePoint: {fileID: 6909541882511989876}
-  _scopeConstraints: {fileID: 1403179202109358778}
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
   _leftTarget: {fileID: 6421355842849405303}
@@ -12717,7 +12726,6 @@ GameObject:
   - component: {fileID: 2834725912171688759}
   - component: {fileID: 4623425367923627361}
   - component: {fileID: 6636585838196419607}
-  - component: {fileID: 5915158846013173663}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -12834,7 +12842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc6091f2251aa44aa5425e3c107d79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSway: {fileID: 0}
   _weaponHandler: {fileID: 4623425367923627361}
   _rigidbody: {fileID: 1103154162992656902}
   _cameraTransform: {fileID: 7571206699023904202}
@@ -12885,24 +12892,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd90ced6cdc617c4c9fc41226a5bf70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camTransform: {fileID: 2765628490397260291}
-  _shakeStrength: 0.25
+  _playerHealth: {fileID: 0}
   _rigidbody: {fileID: 1103154162992656902}
-  _vecolityThreshold: 0.2
---- !u!114 &5915158846013173663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6584956662724233319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55359a39e31e384b849d9a1d7fe7d2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camTransform: {fileID: 1101258206053324754}
-  _shakeStrength: 15
+  _shakeForce: 0
+  _fallDamageForce: 0
+  _shakeThreshold: 0
+  _fallDamageThreshold: 0
 --- !u!1 &6649316896106027126
 GameObject:
   m_ObjectHideFlags: 0
@@ -15462,20 +15457,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _ammoText: {fileID: 853309806076055494}
+  _gunPoint: {fileID: 6860088703118224555}
+  _scopePoint: {fileID: 1782342843332118638}
+  _scopeConstraints: {fileID: 1177885635759341636}
+  _bolt: {fileID: 0}
   _recoilController: {fileID: 4312078347355171907}
   _shellParticle: {fileID: 219026798658281703}
   _ammoPocket: 2400
   _ammoMax: 30
   _damage: 1
+  _mass: 2
   _reloadDuration: 0
   _fireRate: 0.1
   _spread: 0
   _range: 120
-  _mass: 2
+  _boltOffset: 0
   _canChangeAuto: 1
-  _gunPoint: {fileID: 6860088703118224555}
-  _scopePoint: {fileID: 1782342843332118638}
-  _scopeConstraints: {fileID: 1177885635759341636}
   _leftArmKinematics: {fileID: 3914828871443746265}
   _rightArmKinematics: {fileID: 4701718990962938809}
   _leftTarget: {fileID: 5725851503264865925}
