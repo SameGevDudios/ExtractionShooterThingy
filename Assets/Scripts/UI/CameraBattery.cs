@@ -8,41 +8,26 @@ public class CameraBattery : MonoBehaviour
     [SerializeField] private CameraTimer _cameraTimer;
     [SerializeField] private Image _batteryImage;
     [SerializeField] private TMP_Text _chargeText;
-    [Tooltip("Seconds untill discharge")]
-    [SerializeField] private float _batteryCapacity;
-    private float _maxBatteryCapacity, _currentCharge;
-    private bool _chargeSufficient = true;
-    private void Start() =>
-        _maxBatteryCapacity = _batteryCapacity;
-
-    private void Update()
+    private float _maxCharge, _currentCharge;
+    public void SetMaxCharge(float maxCharge) =>
+        _maxCharge = maxCharge;
+    public void UpdateCharge(float newCharge)
     {
-        _currentCharge = _batteryCapacity / _maxBatteryCapacity;
+        _currentCharge = newCharge / _maxCharge;
         CheckCharge();
-        CheckBattery();
+        UpdateBatteryImage();
+        UpdateChargeText();
+    }
+    public void ActivateWhiteNoise()
+    {
+        _whiteNoiseDisplay.SetActive(true);
+        _cameraTimer.enabled = false;
+        this.enabled = false;
     }
     private void CheckCharge()
     {
-        if (_chargeSufficient && _currentCharge < 0.2f)
-        {
+        if (_currentCharge < 0.2f)
             _batteryImage.color = Color.red;
-            _chargeSufficient = false;
-        }
-    }
-    private void CheckBattery()
-    {
-        if (_batteryCapacity > 0)
-        {
-            _batteryCapacity -= Time.deltaTime;
-            UpdateBatteryImage();
-            UpdateChargeText();
-        }
-        else
-        {
-            _whiteNoiseDisplay.SetActive(true);
-            _cameraTimer.enabled = false;
-            this.enabled = false;
-        }
     }
     private void UpdateBatteryImage() =>
          _batteryImage.fillAmount = _currentCharge;
