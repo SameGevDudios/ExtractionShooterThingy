@@ -109302,24 +109302,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 155530940}
     - target: {fileID: 6636585838196419607, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: _fallDamageForce
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636585838196419607, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: _fallDamageThreshold
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6636585838196419607, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: _shakeVelocityThreshold
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6636585838196419607, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: _damageVelocityThreshold
-      value: 3
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.38858
+      value: -22.789
       objectReference: {fileID: 0}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.1728864
       objectReference: {fileID: 0}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.816666
+      value: -69.67761
       objectReference: {fileID: 0}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalRotation.w
