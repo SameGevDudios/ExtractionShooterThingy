@@ -5674,6 +5674,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: _lookSensitivity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452428359166650500, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4629042567907999341, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_TagString
       value: Player

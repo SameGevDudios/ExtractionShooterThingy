@@ -109287,38 +109287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1103154162992656902, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190215223503453592, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 7025896884712730172, guid: e0c98a3a30e9f8f479db9890911ff6c7, type: 3}
-    - target: {fileID: 1190215223503453592, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: a74066172cf19cd4bacae3c6600a7217, type: 2}
     - target: {fileID: 6584956662724233319, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6714126019479671744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: Pools.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6714126019479671744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: Pools.Array.data[1].Tag
-      value: BulletImpactParticles
-      objectReference: {fileID: 0}
-    - target: {fileID: 6714126019479671744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: Pools.Array.data[1].Size
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6714126019479671744, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: Pools.Array.data[1].ObjectToPool
-      value: 
-      objectReference: {fileID: 2292889899550368631, guid: f60e42f2ca37633499e652c232a49873, type: 3}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.6
