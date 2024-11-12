@@ -2613,7 +2613,7 @@ MonoBehaviour:
   _gunRigidbody: {fileID: 5964657865431302852}
   _movementRecoil: {x: -10, y: 3}
   _rotationRecoil: {x: 30, y: -30}
-  _camShakeForce: 0.01
+  _camShakeForce: 0.2
 --- !u!1 &1463370870903195488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6016,7 +6016,7 @@ MonoBehaviour:
   _gunRigidbody: {fileID: 7295057865689927274}
   _movementRecoil: {x: -0.5, y: 0.1}
   _rotationRecoil: {x: 7, y: -15}
-  _camShakeForce: 0.005
+  _camShakeForce: 0.1
 --- !u!1 &3455869037558177277
 GameObject:
   m_ObjectHideFlags: 0
@@ -7515,7 +7515,7 @@ MonoBehaviour:
   _gunRigidbody: {fileID: 1492954234848980310}
   _movementRecoil: {x: -5, y: 1}
   _rotationRecoil: {x: 1, y: -5}
-  _camShakeForce: 0.02
+  _camShakeForce: 0.4
 --- !u!1 &4275535179580754962
 GameObject:
   m_ObjectHideFlags: 0
@@ -8868,7 +8868,7 @@ MonoBehaviour:
   _gunRigidbody: {fileID: 4884753647142469900}
   _movementRecoil: {x: -10, y: 1}
   _rotationRecoil: {x: 5, y: -10}
-  _camShakeForce: 0.01
+  _camShakeForce: 0.2
 --- !u!1 &5014997778018376514
 GameObject:
   m_ObjectHideFlags: 0
@@ -10716,7 +10716,7 @@ MonoBehaviour:
   _gunRigidbody: {fileID: 2447173798201949131}
   _movementRecoil: {x: -5, y: 0}
   _rotationRecoil: {x: 30, y: -30}
-  _camShakeForce: 0.02
+  _camShakeForce: 0.4
 --- !u!1 &5743802955966011863
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,7 +12894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerHealth: {fileID: 4747446344712304903}
   _rigidbody: {fileID: 1103154162992656902}
-  _shakeForce: 0.04
+  _shakeForce: 0.5
   _fallDamageForce: 250
   _shakeThreshold: 0
   _fallDamageThreshold: -6
@@ -12911,7 +12911,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camTransform: {fileID: 1101258206053324754}
-  _shakeStrength: 15
 --- !u!1 &6649316896106027126
 GameObject:
   m_ObjectHideFlags: 0
@@ -15523,7 +15522,7 @@ MonoBehaviour:
   _gunRigidbody: {fileID: 4138362478514801620}
   _movementRecoil: {x: 0, y: 1}
   _rotationRecoil: {x: 5, y: -5}
-  _camShakeForce: 0.02
+  _camShakeForce: 0.4
 --- !u!1 &7667684402440754410
 GameObject:
   m_ObjectHideFlags: 0
