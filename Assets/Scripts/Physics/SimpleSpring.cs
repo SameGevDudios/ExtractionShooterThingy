@@ -10,7 +10,7 @@ public class SimpleSpring : MonoBehaviour
         Vector3 springForce = (_targetPosition - transform.localPosition) * _springForce;
         Vector3 dampingForce = _velocity * _damping;
         Vector3 force = springForce - dampingForce;
-        _velocity += force * Time.deltaTime;
-        transform.localPosition += _velocity * Time.deltaTime;
+        _velocity += force;
+        transform.localPosition += _velocity;
     }
 }
