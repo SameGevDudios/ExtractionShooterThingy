@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ActivateRecoil : MonoBehaviour
 {
-    [SerializeField] private Recoil _recoil;
+    [SerializeField] private NewRecoil _recoil;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
