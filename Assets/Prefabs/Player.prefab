@@ -2790,6 +2790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1103154162992656902}
+  _velocityThreshold: 2
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.02
@@ -7567,6 +7568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1103154162992656902}
+  _velocityThreshold: 2
   _idleSpeed: 5
   _swaySpeed: 0.4
   _horizontalSwayDistance: 0.02
@@ -13126,6 +13128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1103154162992656902}
+  _velocityThreshold: 2
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
@@ -15944,6 +15947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1103154162992656902}
+  _velocityThreshold: 2
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
@@ -18961,6 +18965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7571206699023904202}
   - component: {fileID: 5187564012955231989}
+  - component: {fileID: 1687764515306806433}
   m_Layer: 0
   m_Name: CameraRotation
   m_TagString: Untagged
@@ -19012,6 +19017,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1687764515306806433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9009527226027047845}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2855131e3f15614a9f695627e84e90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1103154162992656902}
+  _velocityThreshold: 0
+  _idleSpeed: 5
+  _swaySpeed: 0
+  _horizontalSwayDistance: 0
+  _verticalSwayDistance: 0
+  _verticalSharpness: 0
 --- !u!1 &9022739066702708817
 GameObject:
   m_ObjectHideFlags: 0
@@ -19061,6 +19085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1103154162992656902}
+  _velocityThreshold: 2
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
