@@ -29,7 +29,8 @@ public class MovementSway : MonoBehaviour
     }
     private void ApplySway()
     {
-        transform.localPosition = Vector3.right * Mathf.Cos(_function) * _horizontalSwayDistance +
+        transform.localPosition = _startPosition + 
+            Vector3.right * Mathf.Cos(_function) * _horizontalSwayDistance +
             Vector3.up * Mathf.Pow(Mathf.Sin(_function + Mathf.PI), _verticalSharpness) * _verticalSwayDistance;
     }
 }
