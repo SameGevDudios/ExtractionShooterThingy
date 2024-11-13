@@ -5670,25 +5670,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2521888565008088993, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
-      value: Player
+    - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
+      propertyPath: _runSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: _lookSensitivity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3452428359166650500, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4629042567907999341, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6193784182817762085, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
-      value: Player
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6584956662724233319, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_Name
@@ -5737,18 +5725,6 @@ PrefabInstance:
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7359587316216097474, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459442071589512590, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7950025830172640537, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -4664,7 +4664,7 @@ GameObject:
   - component: {fileID: 6085564929373524567}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8234,7 +8234,7 @@ GameObject:
   - component: {fileID: 2034359096483781661}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11962,7 +11962,7 @@ GameObject:
   - component: {fileID: 8675287949482811633}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14675,7 +14675,7 @@ GameObject:
   - component: {fileID: 3007240707282009759}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15103,7 +15103,7 @@ GameObject:
   - component: {fileID: 3885986069277290913}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16061,7 +16061,7 @@ GameObject:
   - component: {fileID: 3645234346142774603}
   m_Layer: 7
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
