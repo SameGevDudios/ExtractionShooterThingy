@@ -5,8 +5,11 @@ public class MovementSway : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private float _velocityThreshold, _idleSpeed, _swaySpeed,
         _horizontalSwayDistance, _verticalSwayDistance, _verticalSharpness;
+    private Vector3 _startPosition;
     private float _function;
     private int direction = 1;
+    private void Start() =>
+        _startPosition = transform.localPosition;
     private void Update() =>
         ProcessMovement(_rigidbody.linearVelocity, _rigidbody.linearVelocity.magnitude);
     private void ProcessMovement(Vector3 movement, float baseSpeed)
@@ -20,7 +23,7 @@ public class MovementSway : MonoBehaviour
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, _idleSpeed * Time.deltaTime);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, _startPosition, _idleSpeed * Time.deltaTime);
             _function = 0;
         }
     }
