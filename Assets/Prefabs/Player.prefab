@@ -13129,7 +13129,7 @@ MonoBehaviour:
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
-  _verticalSwayDistance: 0.02
+  _verticalSwayDistance: -0.02
   _verticalSharpness: 2
 --- !u!1 &6823026599602023133
 GameObject:
@@ -15947,7 +15947,7 @@ MonoBehaviour:
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
-  _verticalSwayDistance: 0.02
+  _verticalSwayDistance: -0.02
   _verticalSharpness: 4
 --- !u!1 &7888312808890347677
 GameObject:
@@ -19064,7 +19064,7 @@ MonoBehaviour:
   _idleSpeed: 5
   _swaySpeed: 0.5
   _horizontalSwayDistance: 0.01
-  _verticalSwayDistance: 0.01
+  _verticalSwayDistance: -0.015
   _verticalSharpness: 4
 --- !u!1 &9083462787441820905
 GameObject:
