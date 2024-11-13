@@ -5672,7 +5672,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: _runSpeed
-      value: 1.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: _lookSensitivity
