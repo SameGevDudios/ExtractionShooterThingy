@@ -3,7 +3,7 @@ using UnityEngine;
 public class MovementSway : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _idleSpeed, _swaySpeed,
+    [SerializeField] private float _velocityThreshold, _idleSpeed, _swaySpeed,
         _horizontalSwayDistance, _verticalSwayDistance, _verticalSharpness;
     private float _function;
     private int direction = 1;
@@ -11,7 +11,7 @@ public class MovementSway : MonoBehaviour
         ProcessMovement(_rigidbody.linearVelocity, _rigidbody.linearVelocity.magnitude);
     private void ProcessMovement(Vector3 movement, float baseSpeed)
     {
-        if (movement.magnitude > 0)
+        if (movement.magnitude > _velocityThreshold)
         {
             _function += Mathf.PI * _swaySpeed * baseSpeed * direction * Time.deltaTime;
             if (_function < 0 || _function > Mathf.PI)
