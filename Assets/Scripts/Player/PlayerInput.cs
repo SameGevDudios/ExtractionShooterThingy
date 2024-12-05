@@ -24,6 +24,8 @@ public class PlayerInput : MonoBehaviour
 
     // Weapon
     public static bool Fire =>
+        Input.GetMouseButtonDown(0);
+    public static bool FireHold =>
         Input.GetMouseButton(0);
     public static bool Reload =>
         Input.GetKeyDown(KeyCode.R);

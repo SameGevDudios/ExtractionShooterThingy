@@ -22,7 +22,7 @@ public class WeaponHandler : MonoBehaviour
     }
     private void CheckShoot()
     {
-        if (PlayerInput.Fire) 
+        if (PlayerInput.FireHold) 
             _currentWeapon.TryShoot();
     }
     private void CheckReload()
