@@ -22,37 +22,30 @@ public class WeaponHandler : MonoBehaviour
     }
     private void CheckShoot()
     {
-        if (Input.GetMouseButton(0)) 
+        if (PlayerInput.Fire) 
             _currentWeapon.TryShoot();
     }
     private void CheckReload()
     {
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (PlayerInput.Reload) 
             _currentWeapon.TryReload();
     }
     private void CheckAutoChange()
     {
-        if (Input.GetKeyDown(KeyCode.X)) 
+        if (PlayerInput.SwitchFireMode) 
             _currentWeapon.ChangeAuto();
     }
     private void CheckScope()
     {
-        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.LeftControl)) 
+        if (PlayerInput.Aim) 
             _currentWeapon.Scope();
     }
 
     private void CheckWeaponChange()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            ChangeWeapon(0);
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-            ChangeWeapon(1);
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-            ChangeWeapon(2);
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-            ChangeWeapon(3);
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-            ChangeWeapon(4);
+        int keyPressed = PlayerInput.NumberKeyPressed();
+        if (keyPressed > 0 && keyPressed <= _weapon.Count)
+            ChangeWeapon(keyPressed-1);
     }
 
     public void ChangeWeapon(int index)

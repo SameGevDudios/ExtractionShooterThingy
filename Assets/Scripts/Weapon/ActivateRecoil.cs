@@ -5,7 +5,7 @@ public class ActivateRecoil : MonoBehaviour
     [SerializeField] private NewRecoil _recoil;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (PlayerInput.Fire)
         {
             _recoil.ApplyRecoil();
         }

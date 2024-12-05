@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour
         _cooldown += Time.deltaTime;
     public void TryShoot()
     {
-        if (Input.GetMouseButtonDown(0) || _auto)
+        if (PlayerInput.Fire || _auto)
         {
             if (_cooldown >= _fireRate)
             {
