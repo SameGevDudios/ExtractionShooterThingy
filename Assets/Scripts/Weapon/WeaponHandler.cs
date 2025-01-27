@@ -19,7 +19,7 @@ public class WeaponHandler : MonoBehaviour
     private void Update()
     {
         CheckWeaponChange();
-        if (_currentWeapon != null && _currentWeapon.gameObject.activeSelf)
+        if (_currentWeapon != null)
         {
             CheckShoot();
             CheckReload();
