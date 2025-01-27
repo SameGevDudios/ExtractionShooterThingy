@@ -1,10 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
+
 public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] private FPSController _playerMovement;
     [SerializeField] private List<Weapon> _weapon;
     private Weapon _currentWeapon;
+    private IInput _input;
+
+    public void AssignInput(IInput input)
+    {
+        _input = input;
+    }
     private void Start()
     {
         ChangeWeapon(0);
@@ -22,32 +29,30 @@ public class WeaponHandler : MonoBehaviour
     }
     private void CheckShoot()
     {
-        if (PlayerInput.FireHold) 
-            _currentWeapon.TryShoot();
+        if (_input.FireHold()) 
+            _currentWeapon.TryShoot(_input.Fire());
     }
     private void CheckReload()
     {
-        if (PlayerInput.Reload) 
+        if (_input.Reload()) 
             _currentWeapon.TryReload();
     }
     private void CheckAutoChange()
     {
-        if (PlayerInput.SwitchFireMode) 
+        if (_input.SwitchFireMode()) 
             _currentWeapon.ChangeAuto();
     }
     private void CheckScope()
     {
-        if (PlayerInput.Aim) 
+        if (_input.Aim()) 
             _currentWeapon.Scope();
     }
-
     private void CheckWeaponChange()
     {
-        int keyPressed = PlayerInput.NumberKeyPressed();
+        int keyPressed = _input.NumberKeyPressed();
         if (keyPressed > 0 && keyPressed <= _weapon.Count)
             ChangeWeapon(keyPressed-1);
     }
-
     public void ChangeWeapon(int index)
     {
         if (_currentWeapon != null) 

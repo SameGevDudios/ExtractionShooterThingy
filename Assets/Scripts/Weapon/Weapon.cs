@@ -58,9 +58,9 @@ public class Weapon : MonoBehaviour
         ProcessCooldown();
     private void ProcessCooldown() =>
         _cooldown += Time.deltaTime;
-    public void TryShoot()
+    public void TryShoot(bool firing)
     {
-        if (PlayerInput.Fire || _auto)
+        if (firing || _auto)
         {
             if (_cooldown >= _fireRate)
             {

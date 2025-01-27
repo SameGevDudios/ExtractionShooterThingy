@@ -15,13 +15,17 @@ public class FPSController : MonoBehaviour
 
     private float _verticalLookRotation, _currentSpeed, _currentMaxSpeed, _currentWeight, _currentPlayerTilt;
     private Vector3 _movementDirection, _currentVelocity;
-
     private bool _tiltAim;
+    private IInput _input;
+
+    public void AssignInput(IInput input)
+    {
+        _input = input;
+    }
     private void Start()
     {
         _currentSpeed = _walkSpeed;
     }
-
     private void Update()
     {
         RotateCamera();
@@ -32,32 +36,32 @@ public class FPSController : MonoBehaviour
         MovePlayer();
         TilePlayer();
         TiltWeapon();
-        if (PlayerInput.Jump && IsGrounded())
+        if (_input.Jump() && IsGrounded())
             Jump();
     }
-
     private void RotateCamera()
     {
-        float yRotation = PlayerInput.Mouse.x * _lookSensitivity;
+        Vector2 mouse = _input.Mouse();
+        float yRotation = mouse.x * _lookSensitivity;
         transform.Rotate(Vector3.up * yRotation);
 
-        _verticalLookRotation += PlayerInput.Mouse.y * _lookSensitivity;
+        _verticalLookRotation += mouse.y * _lookSensitivity;
         _verticalLookRotation = Mathf.Clamp(_verticalLookRotation, -90f, 90f);
 
         _cameraTransform.localEulerAngles = Vector3.left * _verticalLookRotation;
     }
     private void CheckMoveModeInput()
     {
-        if (PlayerInput.Run)
+        if (_input.Run())
             _currentMaxSpeed = _runSpeed;
-        else if (PlayerInput.Sneak)
+        else if (_input.Sneak())
             _currentMaxSpeed = _sneakSpeed;
         else
             _currentMaxSpeed = _walkSpeed;
     }
     private void CheckTiltAim()
     {
-        if (PlayerInput.SwitchTilt)
+        if (_input.SwitchTilt())
             _tiltAim = !_tiltAim;
         PlayerStateUI.Instance.SetTiltAimActive(_tiltAim);
     }
@@ -74,16 +78,15 @@ public class FPSController : MonoBehaviour
             _currentVelocity + 
             Vector3.up * _rigidbody.linearVelocity.y;
     }
-
     private void CheckInput()
     {
+        Vector2 movement = _input.Movement();
         _movementDirection = 
-            transform.right * PlayerInput.Movement.x + 
-            transform.forward * PlayerInput.Movement.y;
+            transform.right * movement.x + 
+            transform.forward * movement.y;
         // Vertical movement should be calceled due to the tilt mechanic
         _movementDirection.y = 0;
     }
-
     private void ProcessInertia()
     {
         // Multiply the inertia if no movement keys are held for faster stopping
@@ -93,16 +96,16 @@ public class FPSController : MonoBehaviour
     }
     private void TilePlayer()
     {
-        float tiltForce = PlayerInput.Tilt;
+        float tiltForce = _input.Tilt();
         float newPlayerTilt = tiltForce == 0 ? 0 : _playerTiltAngle * (tiltForce > 0 ? 1 : -1);
         _currentPlayerTilt = Mathf.Lerp(_currentPlayerTilt, newPlayerTilt, _playerTiltSpeed * Time.deltaTime);
         TiltPlayer(_currentPlayerTilt);
     }
     private void TiltWeapon()
     {
-        float tiltForce = PlayerInput.Tilt;
+        float tiltForce = _input.Tilt();
         bool scoped = _weaponHandler.GetCurrentWeapon().GetScope();
-        Vector3 newPosition = _tiltAim && scoped ? (tiltForce != 0 ? (tiltForce > 0 ? -1 : 1) * _weaponHorizontalTilt * Vector3.right :
+        Vector3 newPosition = _tiltAim && scoped ? (tiltForce != 0 ? -Mathf.Sign(tiltForce) * _weaponHorizontalTilt * Vector3.right :
             Vector3.down * _weaponVerticalTilt) : Vector3.zero;
         TiltWeapon(Vector3.Lerp(_weaponsTransform.localPosition, newPosition, _weaponTiltSpeed * Time.deltaTime));
     }

@@ -1,39 +1,39 @@
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class DesktopInput : IInput
 {
     // Movement
-    public static Vector2 Movement => 
+    public Vector2 Movement() => 
         new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-    public static bool Run =>
+    public bool Run() =>
         Input.GetKey(KeyCode.LeftShift);
-    public static bool Sneak =>
+    public bool Sneak() =>
         Input.GetKey(KeyCode.C);
-    public static bool Jump =>
+    public bool Jump() =>
         Input.GetButtonDown("Jump");
 
     // Mouse
-    public static Vector2 Mouse =>
+    public Vector2 Mouse() =>
         new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
     // Tilt
-    public static float Tilt =>
+    public float Tilt() =>
         Input.GetAxis("Tilt");
-    public static bool SwitchTilt =>
+    public bool SwitchTilt() =>
         Input.GetMouseButtonDown(2) || Input.GetKeyDown(KeyCode.T);
 
     // Weapon
-    public static bool Fire =>
+    public bool Fire() =>
         Input.GetMouseButtonDown(0);
-    public static bool FireHold =>
+    public bool FireHold() =>
         Input.GetMouseButton(0);
-    public static bool Reload =>
+    public bool Reload() =>
         Input.GetKeyDown(KeyCode.R);
-    public static bool SwitchFireMode =>
+    public bool SwitchFireMode() =>
         Input.GetKeyDown(KeyCode.X);
-    public static bool Aim =>
+    public bool Aim() =>
         Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.LeftControl);
-    public static int NumberKeyPressed()
+    public int NumberKeyPressed()
     {
         int pressed = -99;
         for (int i = 0; i < 9; i++)
