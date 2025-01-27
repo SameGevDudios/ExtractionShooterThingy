@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform _gunPoint, _scopePoint, _scopeConstraints, _bolt;
     [SerializeField] private Recoil _recoilController;
     [SerializeField] private ParticleSystem _shellParticle;
-    Vector3 _gunStartPosition, _boltStartPosition;
+    private Vector3 _gunStartPosition, _boltStartPosition;
 
     [Space(1)]
     [Header("Stats")]
