@@ -81,6 +81,8 @@ public class FPSController : MonoBehaviour
     private void CheckInput()
     {
         Vector2 movement = _input.Movement();
+        if (movement.magnitude > 1)
+            movement.Normalize();
         _movementDirection = 
             transform.right * movement.x + 
             transform.forward * movement.y;
