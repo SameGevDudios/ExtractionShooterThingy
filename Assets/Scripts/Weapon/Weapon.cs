@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Recoil _recoilController;
     [SerializeField] private ParticleSystem _shellParticle;
     private Vector3 _gunStartPosition, _boltStartPosition;
+    private IInputSway _inputSway;
 
     [Space(1)]
     [Header("Stats")]
@@ -21,7 +22,8 @@ public class Weapon : MonoBehaviour
     protected int _ammoCurrent;
     [SerializeField]
     protected float _mass, _reloadDuration, _fireRate,
-        _spread, _range, _boltOffset;
+        _spread, _range, _boltOffset,
+        _swayAmount, _swayDistance, _swaySpeed;
     private float _cooldown;
     [SerializeField] private bool _canChangeAuto;
     protected bool _auto, _canShoot, _scoped;
@@ -53,9 +55,15 @@ public class Weapon : MonoBehaviour
             _boltStartPosition = _bolt.localPosition;
         _canShoot = true;
         UpdateAmmoText();
+
+        // Temporary call point
+        _inputSway = new HorizontalInputSway(_swayAmount, _swayDistance, _swaySpeed, new DesktopInput(), _scopeConstraints);
     }
-    private void Update() =>
+    private void Update()
+    {
         ProcessCooldown();
+        _inputSway.UpdateSway();
+    }
     private void ProcessCooldown() =>
         _cooldown += Time.deltaTime;
     public void TryShoot(bool firing)
@@ -102,6 +110,7 @@ public class Weapon : MonoBehaviour
         _scopeConstraints.localPosition = _scoped ? _scopePoint.localPosition : _gunStartPosition;
         _scopeConstraints.localEulerAngles = _scoped ? _scopePoint.localEulerAngles : Vector3.zero;
         PlayerStateUI.Instance.SetScopeActive(_scoped);
+        _inputSway.UpdateStartPosition(_scopeConstraints.localPosition);
     }
     public virtual void Shoot()
     {
