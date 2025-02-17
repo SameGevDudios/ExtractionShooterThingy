@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class FPSController : MonoBehaviour
 {
@@ -16,12 +17,8 @@ public class FPSController : MonoBehaviour
     private float _verticalLookRotation, _currentSpeed, _currentMaxSpeed, _currentWeight, _currentPlayerTilt;
     private Vector3 _movementDirection, _currentVelocity;
     private bool _tiltAim;
-    private IInput _input;
+    [Inject] private IInput _input;
 
-    public void AssignInput(IInput input)
-    {
-        _input = input;
-    }
     private void Start()
     {
         _currentSpeed = _walkSpeed;

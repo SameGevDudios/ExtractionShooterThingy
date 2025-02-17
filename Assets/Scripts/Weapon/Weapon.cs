@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using DitzelGames.FastIK;
+using Zenject;
 
 public class Weapon : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Recoil _recoilController;
     [SerializeField] private ParticleSystem _shellParticle;
     private Vector3 _gunStartPosition, _boltStartPosition;
+    [Inject] private IInput _input;
     private IInputSway _inputSway;
 
     [Space(1)]
@@ -57,7 +59,7 @@ public class Weapon : MonoBehaviour
         UpdateAmmoText();
 
         // Temporary call point
-        _inputSway = new HorizontalInputSway(_swayAmount, _swayDistance, _swaySpeed, new DesktopInput(), _scopeConstraints);
+        _inputSway = new HorizontalInputSway(_swayAmount, _swayDistance, _swaySpeed, _input, _scopeConstraints);
     }
     private void Update()
     {

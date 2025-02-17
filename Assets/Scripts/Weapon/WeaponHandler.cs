@@ -1,17 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Zenject;
 
 public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] private FPSController _playerMovement;
     [SerializeField] private List<Weapon> _weapon;
     private Weapon _currentWeapon;
-    private IInput _input;
+    [Inject] private IInput _input;
 
-    public void AssignInput(IInput input)
-    {
-        _input = input;
-    }
     private void Start()
     {
         ChangeWeapon(0);

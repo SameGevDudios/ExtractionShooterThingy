@@ -1,10 +1,11 @@
 using UnityEngine;
+using Zenject;
 
 public class HorizontalInputSway : IInputSway
 {
     private float _swayAmount, _swayDistance, _swaySpeed;
     private Vector3 _startPosition;
-    private IInput _input;
+    [Inject] private IInput _input;
     private Transform _constraints;
 
     public HorizontalInputSway(float swayAmount, float swayDistance, float swaySpeed, IInput input, Transform constraints)
