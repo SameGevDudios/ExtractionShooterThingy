@@ -1,3 +1,4 @@
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using Zenject;
 
@@ -23,7 +24,7 @@ public class HorizontalInputSway : IInputSway
     }
     public void UpdateSway()
     {
-        float sway = Mathf.Clamp(_input.Mouse().x * _swayAmount, -_swayDistance, _swayDistance);
+        float sway = Mathf.Clamp(_input.Mouse().x * _swayAmount * Time.deltaTime, -_swayDistance, _swayDistance);
         Vector3 targetPosition = Vector3.right * sway;
         _constraints.localPosition = Vector3.Lerp(_constraints.localPosition, _startPosition + targetPosition, _swaySpeed * Time.deltaTime);
     }
