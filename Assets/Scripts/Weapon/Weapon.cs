@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour
         UpdateAmmoText();
 
         // Temporary call point
-        _inputSway = new HorizontalInputSway(_swayAmount, _swayDistance, _swaySpeed, _input, _scopeConstraints);
+        _inputSway = new BidirectionalInputSway(_swayAmount, _swayDistance, _swaySpeed, _input, _scopeConstraints);
     }
     private void Update()
     {
