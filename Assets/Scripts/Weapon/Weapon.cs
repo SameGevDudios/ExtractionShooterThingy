@@ -64,7 +64,7 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         ProcessCooldown();
-        _inputSway.UpdateSway();
+        _inputSway.Update();
     }
     private void ProcessCooldown() =>
         _cooldown += Time.deltaTime;
