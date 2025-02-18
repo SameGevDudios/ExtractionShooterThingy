@@ -6429,7 +6429,7 @@ MonoBehaviour:
   _spread: 0
   _range: 120
   _boltOffset: -0.1
-  _swayAmount: 0.2
+  _swayAmount: 20
   _swayDistance: 0.1
   _swaySpeed: 10
   _canChangeAuto: 1
@@ -8048,7 +8048,7 @@ MonoBehaviour:
   _spread: 0
   _range: 120
   _boltOffset: -0.1
-  _swayAmount: 0.05
+  _swayAmount: 10
   _swayDistance: 0.2
   _swaySpeed: 5
   _canChangeAuto: 1
@@ -9480,7 +9480,7 @@ MonoBehaviour:
   _spread: 4
   _range: 120
   _boltOffset: -0.3
-  _swayAmount: 0.2
+  _swayAmount: 20
   _swayDistance: 0.05
   _swaySpeed: 10
   _canChangeAuto: 1
@@ -11516,7 +11516,7 @@ MonoBehaviour:
   _spread: 0
   _range: 120
   _boltOffset: -0.5
-  _swayAmount: 0.05
+  _swayAmount: 10
   _swayDistance: 0.1
   _swaySpeed: 4
   _canChangeAuto: 1
@@ -16612,7 +16612,7 @@ MonoBehaviour:
   _spread: 0
   _range: 120
   _boltOffset: 0
-  _swayAmount: 0.05
+  _swayAmount: 10
   _swayDistance: 0.1
   _swaySpeed: 10
   _canChangeAuto: 1
