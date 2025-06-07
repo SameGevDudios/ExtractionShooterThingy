@@ -106,18 +106,28 @@ namespace MimicSpace
             growTarget = 0;
         }
 
+        Vector3[] _points;
         private void Update()
         {
             // The growTarget is set to 1 if the leg must grow, and 0 if it must retract
-            if (growTarget == 1 && Vector3.Distance(new Vector3(myMimic.legPlacerOrigin.x, 0, myMimic.legPlacerOrigin.z), new Vector3(footPosition.x, 0, footPosition.z)) > maxLegDistance && canDie && myMimic.deployedLegs > myMimic.minimumAnchoredParts)
-                growTarget = 0;
-            else if (growTarget == 1)
+            if (growTarget == 1)
             {
-                // Check is the body is in line of sight from the foot position, and initiates the retractation if it isn't
-                RaycastHit hit;
-                if (Physics.Linecast(footPosition, transform.position, out hit))
+                float distance = Vector3.Distance(
+                    new Vector3(myMimic.legPlacerOrigin.x, 0, myMimic.legPlacerOrigin.z), 
+                    new Vector3(footPosition.x, 0, footPosition.z)
+                    );
+                if (distance > maxLegDistance && canDie && myMimic.deployedLegs > myMimic.minimumAnchoredParts)
                 {
                     growTarget = 0;
+                }
+                else
+                {
+                    // Check is the body is in line of sight from the foot position, and initiates the retractation if it isn't
+                    RaycastHit hit;
+                    if (Physics.Linecast(footPosition, transform.position, out hit))
+                    {
+                        growTarget = 0;
+                    }
                 }
             }
             // progression defines the percentage of deployement (1 being fully deployed and 0 fully retracted)
@@ -156,9 +166,9 @@ namespace MimicSpace
             Sethandles();
 
             // Then sample the spline and assign the values to the line renderer
-            Vector3[] points = GetSamplePoints((Vector3[])handles.Clone(), legResolution, progression);
-            legLine.positionCount = points.Length;
-            legLine.SetPositions(points);
+            _points = GetSamplePoints((Vector3[])handles.Clone(), legResolution, progression);
+            legLine.positionCount = _points.Length;
+            legLine.SetPositions(_points);
         }
 
         void Sethandles()
