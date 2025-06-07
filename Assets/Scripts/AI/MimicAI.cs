@@ -6,14 +6,18 @@ public class MimicAI : MonoBehaviour
     [SerializeField] private NavMeshAgent _navMesh;
     [SerializeField] private GameObject _player;
     [SerializeField] private BoxCollider _scoutZone;
-    [SerializeField] private float _newScoutPointTimer, _followPlayerTimer;
+    [SerializeField] private float _newScoutPointTimer, _followPlayerTimer, _checkPlayerTimer;
     private float _scoutCooldown, _followCooldown;
     private bool _followPlayer;
+
+    private RaycastHit[] _hits = new RaycastHit[16];
+
     private void Start()
     {
         ResetFollowCooldown();
+        CheckPlayer();
     }
-    private void Update()
+    private void CheckPlayer()
     {
         if (_followPlayer)
         {
@@ -24,7 +28,7 @@ public class MimicAI : MonoBehaviour
             }
             else
             {
-                _followCooldown -= Time.deltaTime;
+                _followCooldown -= _checkPlayerTimer;
                 if (_followCooldown <= 0)
                 {
                     ResetScout();
@@ -35,17 +39,17 @@ public class MimicAI : MonoBehaviour
         else
         {
             _scoutCooldown -= Time.deltaTime;
-            if(_scoutCooldown <= 0)
+            if (_scoutCooldown <= 0)
                 ResetScout();
             _followPlayer = PlayerInSight();
         }
+        Invoke("CheckPlayer", _checkPlayerTimer);
     }
 
     private void ResetFollowCooldown()
     {
         _followCooldown = _followPlayerTimer;
     }
-
     private void ResetScout()
     {
         _navMesh.destination = GetRandomScoutPoint();
@@ -54,8 +58,10 @@ public class MimicAI : MonoBehaviour
     private bool PlayerInSight()
     {
         float playerHeight = 2f;
-        Physics.Raycast(transform.position, _player.transform.position - transform.position + Vector3.up * playerHeight / 2, out RaycastHit hit);
-        return hit.collider.CompareTag("Player");
+        Physics.RaycastNonAlloc(transform.position, _player.transform.position - transform.position + Vector3.up * playerHeight / 2, _hits);
+        RaycastHitSorter.SortByDistance(_hits);
+        if (_hits[0].collider == null) return false;
+        return _hits[0].collider.CompareTag("Player");
     }
     private Vector3 GetRandomScoutPoint()
     {
