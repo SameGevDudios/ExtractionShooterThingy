@@ -17,6 +17,8 @@ public class FPSController : MonoBehaviour
     private float _verticalLookRotation, _currentSpeed, _currentMaxSpeed, _currentWeight, _currentPlayerTilt;
     private Vector3 _movementDirection, _currentVelocity;
     private bool _tiltAim;
+    private RaycastHit[] _hit = new RaycastHit[1];
+
     [Inject] private IInput _input;
 
     private void Start()
@@ -118,7 +120,12 @@ public class FPSController : MonoBehaviour
     }
     public void SetSpeed(float weaponMass) =>
         _currentWeight = weaponMass;
-    private bool IsGrounded() =>
-        Physics.Raycast(transform.position + transform.up * 0.03f, -transform.up, 0.05f, _mask);
+    private bool IsGrounded() 
+    {
+        Vector3 offset = transform.up * 0.03f;
+        float rayLength = 0.05f;
+        int collisions = Physics.RaycastNonAlloc(transform.position + offset, -transform.up, _hit, rayLength, _mask);
+        return collisions > 0;
+    }
 }
 
