@@ -465,6 +465,7 @@ MonoBehaviour:
   _scoutZone: {fileID: 876144403}
   _newScoutPointTimer: 30
   _followPlayerTimer: 10
+  _checkPlayerTimer: 0.25
 --- !u!195 &43216227
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5529,6 +5530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mimic
       objectReference: {fileID: 0}
+    - target: {fileID: 8675915457954794080, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8675915457954794082, guid: 3fc537e92bf3d2449b5be72cfd6cb447, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5693,6 +5698,7 @@ MonoBehaviour:
   _scoutZone: {fileID: 1407210366}
   _newScoutPointTimer: 30
   _followPlayerTimer: 10
+  _checkPlayerTimer: 0.25
 --- !u!1001 &632957375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5701,20 +5707,8 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: _runSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2834725912171688759, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: _lookSensitivity
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6584956662724233319, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6584956662724233319, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7190722226130035227, guid: d9605bf8c41564f4fa87f99ebab4a73a, type: 3}
@@ -16085,6 +16079,7 @@ MonoBehaviour:
   _scoutZone: {fileID: 1250021153}
   _newScoutPointTimer: 30
   _followPlayerTimer: 10
+  _checkPlayerTimer: 0.25
 --- !u!195 &1529352270
 NavMeshAgent:
   m_ObjectHideFlags: 0
